@@ -10,3 +10,4 @@ alias grep='grep --color=auto'
 alias sued='sudo -e'
 
 alias make='make -j8'
+alias gvim='mvim'

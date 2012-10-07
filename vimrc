@@ -91,10 +91,11 @@ autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "norm
 if has("gui_running")
     " only show gui tabline and icon, and use console instead of popup dialog
     set guioptions=eic
+    set guifont=Monaco
     set lines=30
-    set columns=100
+    set columns=110
     colorscheme solarized
-    set background=light
+    set background=dark
     call togglebg#map("<F5>")
 else
     colorscheme default
