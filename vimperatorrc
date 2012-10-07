@@ -1,0 +1,12 @@
+" key mappings
+" use <C-A> to select all content in INSERT mode
+inoremap <C-a> <Insert><C-a><Insert>
+
+" options
+set animations
+set complete=sl
+set defsearch=google
+set noscrollbars
+
+" always display close button
+style chrome://browser/content/browser.xul .tab-close-button { display: inline !important; }

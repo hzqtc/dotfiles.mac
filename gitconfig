@@ -1,0 +1,11 @@
+[user]
+	name = Johnny Huang
+	email = hzqtc1229@gmail.com
+[color]
+	ui = true
+[alias]
+	co = checkout
+	st = status
+	ci = commit -a
+	df = diff
+    ls = ls-files
