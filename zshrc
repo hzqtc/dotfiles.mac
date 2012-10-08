@@ -1,4 +1,4 @@
-export PATH="/usr/local/bin:/bin:/usr/bin:/usr/sbin"
+export PATH="/usr/local/bin:/bin:/usr/bin:/sbin:/usr/sbin"
 export EDITOR=vim
 
 export HISTFILE=~/.zsh_history
