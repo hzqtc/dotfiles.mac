@@ -1,4 +1,5 @@
 export PATH="/usr/local/bin:/bin:/usr/bin:/sbin:/usr/sbin"
+export PATH=$PATH:"/usr/local/Cellar/ruby/1.9.3-p194/bin"
 export EDITOR=vim
 
 export HISTFILE=~/.zsh_history
