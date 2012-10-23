@@ -12,6 +12,7 @@ Bundle 'tpope/vim-markdown'
 
 Bundle 'altercation/vim-colors-solarized'
 let g:solarized_italic=0
+let g:solarized_hitrail=1
 
 Bundle 'FencView.vim'
 let g:fencview_autodetect=0
