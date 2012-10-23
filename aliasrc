@@ -6,7 +6,5 @@ alias ll='ls -lh'
 alias la='ls -A'
 alias lll='ls -Alh'
 
-alias grep='grep --color=auto'
-alias sued='sudo -e'
-
+alias grep='grep --text --color=auto'
 alias make='make -j8'
