@@ -85,6 +85,8 @@ set statusline=%F\ %m%r%h%w\ %y\ [%{&fenc}]\ %=\ row:%l,\ col:%c\ %<%P
 
 set tags=tags;
 set autochdir
+set formatoptions=tcroqlm
+set textwidth=80
 
 " jump to last position
 autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
@@ -100,5 +102,5 @@ if has("gui_running")
     call togglebg#map("<F5>")
 else
     colorscheme default
-    set background=light
+    set background=dark
 endif
