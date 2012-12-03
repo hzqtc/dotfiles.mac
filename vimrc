@@ -85,8 +85,8 @@ set statusline=%F\ %m%r%h%w\ %y\ [%{&fenc}]\ %=\ row:%l,\ col:%c\ %<%P
 
 set tags=tags;
 set autochdir
-set formatoptions=tcroqlm
-set textwidth=80
+set formatoptions=tcroqlmM
+set textwidth=100
 
 " jump to last position
 autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
