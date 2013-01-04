@@ -9,3 +9,6 @@
 	ci = commit -a
 	df = diff
     ls = ls-files
+[core]
+	autocrlf = input
+	safecrlf = true
