@@ -9,6 +9,7 @@
 	ci = commit -a
 	df = diff
     ls = ls-files
+    lg = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
 [core]
 	autocrlf = input
 	safecrlf = true
