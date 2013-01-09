@@ -54,6 +54,9 @@ set smarttab
 set expandtab
 set backspace=indent,eol,start
 set nofoldenable
+set nowrap
+set splitright
+set splitbelow
 
 set mousehide
 set mouse=a
@@ -62,6 +65,7 @@ set ttymouse=xterm2
 set fileencodings=utf-8
 set encoding=utf-8
 set nobackup
+set noswapfile
 set hidden
 
 set ignorecase
