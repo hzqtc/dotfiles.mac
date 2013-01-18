@@ -9,7 +9,7 @@
 	ci = commit -a
 	df = diff
     ls = ls-files
-    lg = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+    lg = log --pretty=format:\"%Cred%h%Creset %Cgreen%ad%Creset | %s%d %Cblue[%an]%Creset\" --graph --date=short
 [core]
 	autocrlf = input
 	safecrlf = true
