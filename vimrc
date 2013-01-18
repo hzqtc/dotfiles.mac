@@ -39,6 +39,8 @@ map <F4> :GundoToggle<CR>
 
 " sort and unqiue selection lines
 map <F2> :sort u<CR>
+" Y to yank to end of line
+map Y y$
 " convert current buffer to utf-8 encoding and save
 map <F3> :FencAutoDetect<CR>:set fenc=utf-8<CR>:w<CR>
 
@@ -54,7 +56,6 @@ set smarttab
 set expandtab
 set backspace=indent,eol,start
 set nofoldenable
-set nowrap
 set splitright
 set splitbelow
 
