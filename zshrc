@@ -1,9 +1,9 @@
-export PATH="/usr/local/bin:/bin:/usr/bin:/sbin:/usr/sbin"
+export PATH="/usr/local/bin:/bin:/usr/bin:/sbin:/usr/sbin:/usr/local/share/npm/bin"
 export EDITOR=vim
 
 export HISTFILE=~/.zsh_history
-export HISTSIZE=10000
-export SAVEHIST=10000
+export HISTSIZE=1000
+export SAVEHIST=1000
 
 setopt AUTO_LIST
 setopt AUTO_MENU
