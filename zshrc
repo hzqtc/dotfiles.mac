@@ -41,6 +41,8 @@ promptinit
 autoload -U colors
 colors
 
-PROMPT="%{$fg[blue]%}%n%{$reset_color%} %# "
+autoload zmv
+
+PROMPT="%{$fg[yellow]%}%n%{$reset_color%} %# "
 RPROMPT="%{$fg[green]%}%~%{$reset_color%} [%{$fg[red]%}%?%{$reset_color%}]"
 RPROMPT2=""
