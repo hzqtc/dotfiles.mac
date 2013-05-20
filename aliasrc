@@ -8,3 +8,8 @@ alias lll='ls -Alh'
 
 alias grep='grep --text --color=auto'
 alias make='make -j8'
+
+alias proxyon='networksetup -setautoproxystate Wi-Fi on'
+alias proxyoff='networksetup -setautoproxystate Wi-Fi off'
+alias proxyob='ssh -N -v -D 7127 -p 9999 onlybird@ssh2012.unssh.com'
+alias proxygo='ssh -N -v -D 7127 -p 443 test@testlink.gossh.net'
