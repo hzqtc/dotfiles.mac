@@ -43,6 +43,6 @@ colors
 
 autoload zmv
 
-PROMPT="%{$fg[yellow]%}%n%{$reset_color%} %# "
-RPROMPT="%{$fg[green]%}%~%{$reset_color%} [%{$fg[red]%}%?%{$reset_color%}]"
+PROMPT="%{$fg[green]%}%#%{$reset_color%} "
+RPROMPT="%{$fg[yellow]%}%~%{$reset_color%} [%{$fg[red]%}%?%{$reset_color%}]"
 RPROMPT2=""
