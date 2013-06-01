@@ -8,3 +8,4 @@ set complete=sl
 set defsearch=google
 set noscrollbars
 set focuscontent
+set editor=/usr/local/bin/gvim\ -f
