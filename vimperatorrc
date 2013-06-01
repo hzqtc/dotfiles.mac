@@ -1,6 +1,6 @@
 " key mappings
-" use <C-A> to select all content in INSERT mode
-inoremap <C-a> <Insert><C-a><Insert>
+map g<C-b> :bmarks<CR>
+map g<C-j> :jumps<CR>
 
 " options
 set animations
