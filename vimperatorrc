@@ -1,6 +1,8 @@
 " key mappings
 map g<C-b> :bmarks<CR>
 map g<C-j> :jumps<CR>
+map J <C-d>
+map K <C-u>
 
 " options
 set animations
