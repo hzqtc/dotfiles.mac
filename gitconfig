@@ -8,8 +8,8 @@
 	st = status
 	ci = commit -a
 	df = diff
-    ls = ls-files
-    lg = log --pretty=format:\"%Cred%h%Creset %Cgreen%ad%Creset | %s%d %Cblue[%an]%Creset\" --graph --date=short
+	ls = ls-files
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 [core]
 	autocrlf = input
 	safecrlf = true
