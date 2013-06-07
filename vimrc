@@ -87,7 +87,7 @@ set showmode
 " always display statusline
 set laststatus=2
 " statsuline: filename, mode, filetype, line number, scroll position
-set statusline=%F\ %m%r%h%w\ %y\ [%{&fenc}]\ %=\ row:%l,\ col:%c\ %<%P
+set statusline=%F\ %m%r%h%w\ %y\ [%{&fenc}]\ [%{&ff}]\ %=\ row:%l,\ col:%c\ %<%P
 
 set tags=tags;
 set autochdir
