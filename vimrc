@@ -104,9 +104,9 @@ if has("gui_running")
     set lines=30
     set columns=110
     colorscheme solarized
-    set background=dark
+    set background=light
     call togglebg#map("<F5>")
 else
     colorscheme default
-    set background=dark
+    set background=light
 endif
