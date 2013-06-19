@@ -15,9 +15,6 @@ let g:solarized_italic=0
 let g:solarized_hitrail=1
 let g:solarized_menu=0
 
-Bundle 'FencView.vim'
-let g:fencview_autodetect=0
-
 Bundle 'scrooloose/nerdtree'
 map <F6> :NERDTreeToggle<CR>
 
@@ -34,15 +31,12 @@ let g:tagbar_compact=1
 Bundle 'kien/ctrlp.vim'
 map <C-B> :CtrlPBuffer<CR>
 
-Bundle 'Gundo'
-map <F4> :GundoToggle<CR>
+Bundle 'vim-scripts/Align'
 
 " sort and unqiue selection lines
 map <F2> :sort u<CR>
 " Y to yank to end of line
 map Y y$
-" convert current buffer to utf-8 encoding and save
-map <F3> :FencAutoDetect<CR>:set fenc=utf-8<CR>:w<CR>
 
 filetype plugin indent on
 syntax enable
