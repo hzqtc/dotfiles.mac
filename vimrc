@@ -1,51 +1,43 @@
 set nocompatible
-
 filetype off
 
-" use vundle to manage plugins
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
-Bundle 'gmarik/vundle'
+" Let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
 
-Bundle 'tpope/vim-markdown'
+" Status bar
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 
-Bundle 'altercation/vim-colors-solarized'
-let g:solarized_italic=0
-let g:solarized_hitrail=1
-let g:solarized_menu=0
+" Code structure outline
+Plugin 'preservim/tagbar'
 
-Bundle 'scrooloose/nerdtree'
-map <F6> :NERDTreeToggle<CR>
+" Show diff in the sign column
+Plugin 'mhinz/vim-signify'
 
-Bundle 'scrooloose/nerdcommenter'
-let g:NERDMenuMode=0
-" toggle comment on and off
-map <F7> \c<Space>
+" Papercolor color scheme
+Plugin 'NLKNguyen/papercolor-theme'
 
-Bundle 'majutsushi/tagbar'
-map <F8> :TagbarToggle<CR>
-let g:tagbar_sort=0
-let g:tagbar_compact=1
+" File explorer
+Plugin 'preservim/nerdtree'
 
-Bundle 'kien/ctrlp.vim'
-map <C-B> :CtrlPBuffer<CR>
-
-Bundle 'vim-scripts/Align'
-
-" sort and unqiue selection lines
-map <F2> :sort u<CR>
-" Y to yank to end of line
-map Y y$
+" All of your Plugins must be added before the following line
+call vundle#end()
 
 filetype plugin indent on
 syntax enable
 
+" Quicker updates for 'vim-signify'
+set updatetime=100
+
 set autoindent
 set smartindent
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
 set smarttab
 set expandtab
 set backspace=indent,eol,start
@@ -78,29 +70,58 @@ set showmatch
 set showcmd
 set showmode
 
-" always display statusline
-set laststatus=2
-" statsuline: filename, mode, filetype, line number, scroll position
-set statusline=%F\ %m%r%h%w\ %y\ [%{&fenc}]\ [%{&ff}]\ %=\ row:%l,\ col:%c\ %<%P
+" Config airline C section to show all buffers with active buffer name in []
+function! AirlineBufferList()
+  let buffers = filter(range(1, bufnr('$')), 'buflisted(v:val)')
+  let names = map(buffers, 'v:val == bufnr("") ? "[" . v:val . ":" . fnamemodify(bufname(v:val), ":t") . "]" : v:val . ":" . fnamemodify(bufname(v:val), ":t")')
+  return join(names, ' | ')
+endfunction
+let g:airline_section_c = '%{AirlineBufferList()}'
 
 set tags=tags;
 set autochdir
 set formatoptions=tcroqlmM
-set textwidth=80
+set textwidth=150
+
+" Toggle nerd tree
+nmap <F1> :NERDTreeToggle<CR>
+" Toggle tag bar
+nmap <F4> :TagbarToggle<CR>
+" Navigate buffers
+nmap <F2> :bprevious<CR>
+nmap <F3> :bnext<CR>
+" Use ctrl-[hjkl] to select the active split!
+nmap <silent> <c-k> :wincmd k<CR>
+nmap <silent> <c-j> :wincmd j<CR>
+nmap <silent> <c-h> :wincmd h<CR>
+nmap <silent> <c-l> :wincmd l<CR>
+
+" Start NERDTree when Vim is started without file arguments.
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | NERDTree | endif
+" Close the tab if NERDTree is the only window remaining in it.
+autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | call feedkeys(":quit\<CR>:\<BS>") | endif
+" Open the existing NERDTree on each new tab.
+autocmd BufWinEnter * if &buftype != 'quickfix' && getcmdwintype() == '' | silent NERDTreeMirror | endif
 
 " jump to last position
 autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 
 if has("gui_running")
-    " only show gui tabline and icon, and use console instead of popup dialog
-    set guioptions=eic
-    set guifont=Monaco
-    set lines=30
-    set columns=110
-    colorscheme solarized
+  " only show gui tabline and icon, and use console instead of popup dialog
+  set guioptions=eic
+  set guifont=FiraCodeRoman-Regular:h13
+  set lines=42
+  set columns=159
+  " Light background before 8PM
+  if strftime("%H") < 20
     set background=light
-    call togglebg#map("<F5>")
+  else
+    set background=dark
+  endif
 else
-    colorscheme default
-    set background=light
+  " Alwasy dark background in terminal
+  set background=dark
 endif
+colorscheme PaperColor
+

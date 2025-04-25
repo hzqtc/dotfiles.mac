@@ -1,15 +1,21 @@
 [user]
 	name = Johnny Huang
 	email = hzqtc1229@gmail.com
-[color]
-	ui = true
+[credential]
+	helper = 
+	helper = /usr/local/share/gcm-core/git-credential-manager
+[credential "https://dev.azure.com"]
+	useHttpPath = true
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[diff]
+	tool = vimdiff
+[difftool]
+	prompt = false
 [alias]
-	co = checkout
+	d = difftool
 	st = status
-	ci = commit -a
-	df = diff
-	ls = ls-files
-	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
-[core]
-	autocrlf = input
-	safecrlf = true
+	c = commit

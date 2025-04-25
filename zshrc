@@ -1,48 +1,16 @@
-export PATH="/usr/local/bin:/bin:/usr/bin:/sbin:/usr/sbin:/usr/local/share/npm/bin"
-export EDITOR=vim
-
-export HISTFILE=~/.zsh_history
-export HISTSIZE=1000
-export SAVEHIST=1000
-
-setopt AUTO_LIST
-setopt AUTO_MENU
-setopt APPEND_HISTORY
-setopt HIST_IGNORE_DUPS
-
 source ~/.aliasrc
+
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
 bindkey -v
 
-bindkey "\e[1~" beginning-of-line
-bindkey "\e[2~" insert-last-word
-bindkey "\e[3~" delete-char
-bindkey "\e[4~" end-of-line
-bindkey "\e[5~" backward-word
-bindkey "\e[6~" forward-word
-bindkey "\e[A"	up-line-or-search
-bindkey "\e[B"	down-line-or-search
-bindkey "\e[C"	forward-char
-bindkey "\e[D"	backward-char
-
-bindkey "\e[8~" end-of-line
-bindkey "\e[7~" beginning-of-line
-bindkey "\eOH" beginning-of-line
-bindkey "\eOF" end-of-line
-bindkey "\e[H" beginning-of-line
-bindkey "\e[F" end-of-line
-
-autoload -U compinit
-compinit
-
-autoload -U promptinit
-promptinit
-
-autoload -U colors
-colors
+# Up and Down keys would search command history starting with the current prompt
+autoload -U history-search-end
+zle -N history-beginning-search-backward-end history-search-end
+zle -N history-beginning-search-forward-end history-search-end
+bindkey "^[[A" history-beginning-search-backward-end
+bindkey "^[[B" history-beginning-search-forward-end
 
 autoload zmv
 
-PROMPT="%{$fg[green]%}%#%{$reset_color%} "
-RPROMPT="%{$fg[yellow]%}%~%{$reset_color%} [%{$fg[red]%}%?%{$reset_color%}]"
-RPROMPT2=""
+eval "$(starship init zsh)"
