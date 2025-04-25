@@ -9,9 +9,6 @@ do
 
     if [ -f $file ]
     then
-        echo "$name => $file"
-        cp "$name" "$file"
-    else
         echo -n "Do you wish to copy $name to $file? [y/N]"
         read ans
         if [ "$ans" == "y" -o "$ans" == "Y" ]
@@ -19,6 +16,9 @@ do
             echo "$name => $file"
             cp "$name" "$file"
         fi
+    else
+        echo "$name => $file"
+        cp "$name" "$file"
     fi
 done
 
