@@ -1,6 +1,6 @@
 #!/bin/bash
 
-dotfiles=( ~/.vimrc ~/.zshrc ~/.aliasrc ~/.gitconfig ~/.vimperatorrc ~/.tmux.conf )
+dotfiles=( ~/.vimrc ~/.zshrc ~/.aliasrc ~/.gitconfig ~/.config/fish/config.fish )
 
 for file in ${dotfiles[*]}
 do
