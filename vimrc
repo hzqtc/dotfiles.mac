@@ -84,9 +84,9 @@ set formatoptions=tcroqlmM
 set textwidth=150
 
 " Toggle nerd tree
-nmap <F1> :NERDTreeToggle<CR>
+nmap <F4> :NERDTreeToggle<CR>
 " Toggle tag bar
-nmap <F4> :TagbarToggle<CR>
+nmap <F5> :TagbarToggle<CR>
 " Navigate buffers
 nmap <F2> :bprevious<CR>
 nmap <F3> :bnext<CR>
