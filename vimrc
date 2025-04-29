@@ -73,7 +73,19 @@ set showmode
 " Config airline C section to show all buffers with active buffer name in []
 function! AirlineBufferList()
   let buffers = filter(range(1, bufnr('$')), 'buflisted(v:val)')
-  let names = map(buffers, 'v:val == bufnr("") ? "[" . v:val . ":" . fnamemodify(bufname(v:val), ":t") . "]" : v:val . ":" . fnamemodify(bufname(v:val), ":t")')
+  let names = []
+  for b in buffers
+    let name = bufname(b) ==# '' ? '<New>' : fnamemodify(bufname(b), ':t')
+    if getbufvar(b, '&modified')
+      let name .= '*'
+    endif
+    if b == bufnr('')
+      " Current buffer: bold using airline's raw part
+      call add(names, printf('[%d:%s]', b, name))
+    else
+      call add(names, printf('%d:%s', b, name))
+    endif
+  endfor
   return join(names, ' | ')
 endfunction
 let g:airline_section_c = '%{AirlineBufferList()}'
