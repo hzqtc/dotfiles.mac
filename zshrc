@@ -14,3 +14,4 @@ bindkey "^[[B" history-beginning-search-forward-end
 autoload zmv
 
 eval "$(starship init zsh)"
+
