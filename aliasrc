@@ -5,10 +5,13 @@ alias ll='ls -l'
 alias la='ls -A'
 alias lll='ll -A'
 alias lt='ll --tree'
+
 alias cat='bat'
 alias du='dust'
 alias curl='xh'
 alias df='duf'
 alias ps='procs'
+
+alias rm='rmtrash'
 
 alias dlm='yt-dlp --extract-audio --add-metadata --embed-thumbnail --audio-quality 0 --output "~/Music/mpd/%(title)s.%(ext)s"'
