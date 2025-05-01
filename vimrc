@@ -90,20 +90,32 @@ function! AirlineBufferList()
 endfunction
 let g:airline_section_c = '%{AirlineBufferList()}'
 
+function! AirlineLineNumber()
+  return line('.') . '/' . line('$')
+endfunction
+let g:airline_section_z = '%{AirlineLineNumber()}'
+
 set tags=tags;
 set autochdir
 set formatoptions=tcroqlmM
 set textwidth=150
 
+" Quick buffer navigation
+nmap <F1> :b1<CR>
+nmap <F2> :b2<CR>
+nmap <F3> :b3<CR>
+nmap <F4> :b4<CR>
+
 " Toggle nerd tree
-nmap <F4> :NERDTreeToggle<CR>
+nmap <F5> :NERDTreeToggle<CR>
 " Locate current file in nerdtree
-nmap <F5> :NERDTreeFind<CR>
+nmap <F6> :NERDTreeFind<CR>
 " Toggle tag bar
-nmap <F6> :TagbarToggle<CR>
+nmap <F7> :TagbarToggle<CR>
 " Navigate buffers
-nmap <F2> :bprevious<CR>
-nmap <F3> :bnext<CR>
+nmap <F9> :bprevious<CR>
+nmap <F10> :bnext<CR>
+
 " Use ctrl-[hjkl] to select the active split!
 nmap <silent> <c-k> :wincmd k<CR>
 nmap <silent> <c-j> :wincmd j<CR>
