@@ -97,8 +97,10 @@ set textwidth=150
 
 " Toggle nerd tree
 nmap <F4> :NERDTreeToggle<CR>
+" Locate current file in nerdtree
+nmap <F5> :NERDTreeFind<CR>
 " Toggle tag bar
-nmap <F5> :TagbarToggle<CR>
+nmap <F6> :TagbarToggle<CR>
 " Navigate buffers
 nmap <F2> :bprevious<CR>
 nmap <F3> :bnext<CR>
