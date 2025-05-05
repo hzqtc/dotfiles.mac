@@ -90,10 +90,15 @@ function! AirlineBufferList()
 endfunction
 let g:airline_section_c = '%{AirlineBufferList()}'
 
-function! AirlineLineNumber()
-  return line('.') . ':' . col('.')
+function! AirlineSectionZ()
+  let lnum = line('.')
+  let colnum = col('.')
+  let total = line('$')
+  let scroll = float2nr(100.0 * lnum / total)
+  let win_size = winheight(0) . 'x' . winwidth(0)
+  return lnum . ':' . colnum . ' ' . scroll . '% ' . win_size
 endfunction
-let g:airline_section_z = '%{AirlineLineNumber()}'
+let g:airline_section_z = '%{AirlineSectionZ()}'
 
 set tags=tags;
 set autochdir
@@ -111,7 +116,7 @@ nmap <F5> :NERDTreeToggle<CR>
 " Locate current file in nerdtree
 nmap <F6> :NERDTreeFind<CR>
 " Toggle tag bar
-nmap <F7> :TagbarToggle<CR>
+nmap <F8> :TagbarToggle<CR>
 " Navigate buffers
 nmap <F9> :bprevious<CR>
 nmap <F10> :bnext<CR>
