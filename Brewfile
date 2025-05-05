@@ -9,6 +9,8 @@ brew "bandwhich"
 brew "bat"
 # Play, record, convert, and stream audio and video
 brew "ffmpeg"
+# Terminal visual disk space navigator
+brew "diskonaut"
 # Disk Usage/Free Utility - a better 'df' alternative
 brew "duf"
 # More intuitive version of du in rust
@@ -19,8 +21,6 @@ brew "eva"
 brew "fd"
 # User-friendly command-line shell for UNIX-like operating systems
 brew "fish"
-# GitHub command-line tool
-brew "gh"
 # Syntax-highlighting pager for git and diff output
 brew "git-delta"
 # Blazing fast terminal-ui for git written in rust
@@ -61,6 +61,8 @@ brew "universal-ctags"
 brew "up"
 # Extremely fast Python package installer and resolver, written in Rust
 brew "uv"
+# Execute commands when watched files change
+brew "watchexec"
 # Internet file retriever
 brew "wget"
 # Friendly and fast tool for sending HTTP requests
