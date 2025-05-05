@@ -91,7 +91,7 @@ endfunction
 let g:airline_section_c = '%{AirlineBufferList()}'
 
 function! AirlineLineNumber()
-  return line('.') . '/' . line('$')
+  return line('.') . ':' . col('.')
 endfunction
 let g:airline_section_z = '%{AirlineLineNumber()}'
 

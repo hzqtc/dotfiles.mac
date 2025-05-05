@@ -11,6 +11,7 @@ alias du='dust'
 alias curl='xh'
 alias df='duf'
 alias ps='procs'
+alias bc='eva'
 
 alias rm='rmtrash'
 

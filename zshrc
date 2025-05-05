@@ -15,3 +15,4 @@ autoload zmv
 
 eval "$(starship init zsh)"
 
+export PATH="$PATH:/Users/hzqtc/.local/bin"
