@@ -32,7 +32,6 @@ syntax enable
 
 " Quicker updates for 'vim-signify'
 set updatetime=100
-
 set autoindent
 set smartindent
 set tabstop=2
@@ -44,23 +43,19 @@ set backspace=indent,eol,start
 set nofoldenable
 set splitright
 set splitbelow
-
 set mousehide
 set mouse=a
 set ttymouse=xterm2
-
 set fileencodings=utf-8
 set encoding=utf-8
 set nobackup
 set noswapfile
 set hidden
-
 set ignorecase
 set smartcase
 set incsearch
 " replace with 'g' option in default
 set gdefault
-
 set wildmenu
 set novisualbell
 set noerrorbells
@@ -69,6 +64,14 @@ set ruler
 set showmatch
 set showcmd
 set showmode
+set tags=tags;
+set autochdir
+set formatoptions=tcroqlmM
+set textwidth=150
+" Remember the following view options and restore automatically
+set viewoptions=folds,cursor,curdir
+autocmd BufWinLeave * silent! mkview
+autocmd BufWinEnter * silent! loadview
 
 " Config airline C section to show all buffers with active buffer name in []
 function! AirlineBufferList()
@@ -100,11 +103,6 @@ function! AirlineSectionZ()
 endfunction
 let g:airline_section_z = '%{AirlineSectionZ()}'
 
-set tags=tags;
-set autochdir
-set formatoptions=tcroqlmM
-set textwidth=150
-
 " Quick buffer navigation
 nmap <F1> :b1<CR>
 nmap <F2> :b2<CR>
@@ -134,9 +132,6 @@ autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | NERDTree | endif
 autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | call feedkeys(":quit\<CR>:\<BS>") | endif
 " Open the existing NERDTree on each new tab.
 autocmd BufWinEnter * if &buftype != 'quickfix' && getcmdwintype() == '' | silent NERDTreeMirror | endif
-
-" jump to last position
-autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 
 if has("gui_running")
   " only show gui tabline and icon, and use console instead of popup dialog
