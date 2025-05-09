@@ -9,4 +9,4 @@ set -g fish_key_bindings fish_vi_key_bindings
 
 starship init fish | source
 
-set PATH $PATH /Users/hzqtc/.local/bin
+set -gx LEDGER_FILE /Users/hzqtc/Documents/hledger/hledger.journal

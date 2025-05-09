@@ -15,4 +15,4 @@ autoload zmv
 
 eval "$(starship init zsh)"
 
-export PATH="$PATH:/Users/hzqtc/.local/bin"
+export LEDGER_FILE="/Users/hzqtc/Documents/hledger/hledger.journal"
