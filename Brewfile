@@ -15,8 +15,14 @@ brew "diskonaut"
 brew "duf"
 # More intuitive version of du in rust
 brew "dust"
+# Easily install prebuilt binaries from GitHub
+brew "eget"
 # Calculator REPL, similar to bc(1)
 brew "eva"
+# Fast partial replacement for the codemod tool
+brew "fastmod"
+# Significantly faster alternative to the classic Unix cp(1) command
+brew "fcp"
 # Simple, fast and user-friendly alternative to find
 brew "fd"
 # User-friendly command-line shell for UNIX-like operating systems
@@ -47,6 +53,8 @@ brew "parallel"
 brew "procs"
 # File browser
 brew "ranger"
+# Unit conversion tool and library written in rust
+brew "rink"
 # Move files and directories to the trash
 brew "rmtrash"
 # Cross-shell prompt for astronauts
