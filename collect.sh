@@ -1,19 +1,9 @@
 #!/bin/bash
 
-dotfiles=(\
-~/.vimrc \
-~/.zshrc \
-~/.aliasrc \
-~/.gitconfig \
-~/.gitignore \
-~/.config/fish/config.fish \
-~/.tmux.conf \
-~/.sysinfo.sh \
-~/.Brewfile \
-"$HOME/Library/Application Support/organize/config.yaml")
-
-for file in "${dotfiles[@]}"
-do
+# Read file on descriptor 3 instead of stdin
+# This way `read ans` would not be affected by the content in the file
+while IFS= read -r file <&3; do
+  file=$(eval echo $file)
   if [ -f "$file" ]; then
     if [[ "$file" =~ ".Brewfile" ]]; then
       echo "Updating $file"
@@ -26,7 +16,7 @@ do
   else
     echo "Error: $file does not exist!"
   fi
-done
+done 3< .dotfiles
 
 # Dump python tools installed by UV to a file
 echo "Updating uv.tool"
