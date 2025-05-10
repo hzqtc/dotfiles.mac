@@ -59,6 +59,8 @@ brew "rink"
 brew "rmtrash"
 # Cross-shell prompt for astronauts
 brew "starship"
+# Send macOS User Notifications from the command-line
+brew "terminal-notifier"
 # Official tldr client written in Rust
 brew "tlrc"
 # Terminal multiplexer
@@ -73,6 +75,8 @@ brew "uv"
 brew "watchexec"
 # Internet file retriever
 brew "wget"
+# CSV CLI magician written in Rust
+brew "xan"
 # Friendly and fast tool for sending HTTP requests
 brew "xh"
 # Feature-rich command-line audio/video downloader
