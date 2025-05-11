@@ -24,6 +24,9 @@ Plugin 'NLKNguyen/papercolor-theme'
 " File explorer
 Plugin 'preservim/nerdtree'
 
+" Auto pairs
+Plugin 'LunarWatcher/auto-pairs'
+
 " All of your Plugins must be added before the following line
 call vundle#end()
 
@@ -103,6 +106,8 @@ function! AirlineSectionZ()
 endfunction
 let g:airline_section_z = '%{AirlineSectionZ()}'
 
+" Y to copy to end of line
+map Y y$
 " Quick buffer navigation
 nmap <F1> :b1<CR>
 nmap <F2> :b2<CR>
