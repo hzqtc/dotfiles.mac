@@ -6,8 +6,10 @@ alias la='ls -A'
 alias lll='ll -A'
 alias lt='ll --tree'
 
+alias cat='bat'
 alias du='dust'
 alias df='duf'
 alias rm='rmtrash'
+alias tw='tw --theme catppuccin'
 
 alias dlm='yt-dlp --extract-audio --add-metadata --embed-thumbnail --audio-quality 0 --output "~/Music/mpd/%(title)s.%(ext)s"'

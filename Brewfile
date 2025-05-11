@@ -27,6 +27,8 @@ brew "fcp"
 brew "fd"
 # User-friendly command-line shell for UNIX-like operating systems
 brew "fish"
+# GitHub command-line tool
+brew "gh"
 # Syntax-highlighting pager for git and diff output
 brew "git-delta"
 # Blazing fast terminal-ui for git written in rust
@@ -59,6 +61,8 @@ brew "rink"
 brew "rmtrash"
 # Cross-shell prompt for astronauts
 brew "starship"
+# TUI to view and query tabular files (CSV,TSV, Parquet, etc.)
+brew "tabiew"
 # Send macOS User Notifications from the command-line
 brew "terminal-notifier"
 # Official tldr client written in Rust
