@@ -13,6 +13,18 @@ bindkey "^[[B" history-beginning-search-forward-end
 
 autoload zmv
 
+# Use xan to view csv files
+function cat() {
+  for file in "$@"; do
+    if [[ "$file" == *.csv ]]; then
+      xan view -pAR "$file"
+    else
+      command bat "$file"
+    fi
+  done
+}
+
 eval "$(starship init zsh)"
 
 export LEDGER_FILE="/Users/hzqtc/Documents/hledger/hledger.journal"
+export EDITOR=vim
