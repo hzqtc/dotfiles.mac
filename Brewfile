@@ -77,14 +77,14 @@ brew "up"
 brew "uv"
 # Execute commands when watched files change
 brew "watchexec"
-# Internet file retriever
-brew "wget"
 # CSV CLI magician written in Rust
 brew "xan"
 # Friendly and fast tool for sending HTTP requests
 brew "xh"
 # Feature-rich command-line audio/video downloader
 brew "yt-dlp"
+# Pluggable terminal workspace, with terminal multiplexer as the base feature
+brew "zellij"
 # A beautiful and simple terminal dashboard for hledger
 brew "siddhantac/puffin/puffin"
 # User-friendly GUI app for Homebrew
@@ -92,14 +92,11 @@ cask "applite"
 # Photography workflow application and raw developer
 cask "darktable"
 cask "font-fira-code"
-cask "font-fira-mono"
 # Cross-platform Git credential storage for multiple hosting providers
 cask "git-credential-manager"
 # Free and open-source media player
 cask "iina"
-# Tool to optimise images to a smaller size
-cask "imageoptim"
-# Open-source Markdown editor
-cask "macdown"
 # Programmable solid 3D CAD modeller
 cask "openscad"
+# Multiplayer code editor
+cask "zed"

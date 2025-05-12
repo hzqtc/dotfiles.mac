@@ -9,6 +9,7 @@ alias lt='ll --tree'
 alias cat='bat'
 alias du='dust'
 alias df='duf'
+alias cp='fcp'
 alias rm='rmtrash'
 alias tw='tw --theme catppuccin'
 
