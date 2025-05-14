@@ -11,3 +11,5 @@ starship init fish | source
 
 set -gx LEDGER_FILE /Users/hzqtc/Documents/hledger/hledger.journal
 set -gx EDITOR vim
+set -gx HOMEBREW_NO_AUTO_UPDATE 1
+
