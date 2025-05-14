@@ -27,6 +27,9 @@ Plugin 'preservim/nerdtree'
 " Auto pairs
 Plugin 'LunarWatcher/auto-pairs'
 
+" D2 syntax highlight
+Plugin 'terrastruct/d2-vim'
+
 " All of your Plugins must be added before the following line
 call vundle#end()
 
@@ -49,7 +52,7 @@ set splitbelow
 set mousehide
 set mouse=a
 set ttymouse=xterm2
-set fileencodings=utf-8
+set fileencodings=ucs-bom,utf-8,gb18030,gbk,gb2312,cp936
 set encoding=utf-8
 set nobackup
 set noswapfile
@@ -130,9 +133,6 @@ nmap <silent> <c-j> :wincmd j<CR>
 nmap <silent> <c-h> :wincmd h<CR>
 nmap <silent> <c-l> :wincmd l<CR>
 
-" Start NERDTree when Vim is started without file arguments.
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | NERDTree | endif
 " Close the tab if NERDTree is the only window remaining in it.
 autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | call feedkeys(":quit\<CR>:\<BS>") | endif
 " Open the existing NERDTree on each new tab.
