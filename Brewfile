@@ -9,6 +9,8 @@ brew "bandwhich"
 brew "bat"
 # Play, record, convert, and stream audio and video
 brew "ffmpeg"
+# Modern diagram scripting language that turns text to diagrams
+brew "d2"
 # Terminal visual disk space navigator
 brew "diskonaut"
 # Disk Usage/Free Utility - a better 'df' alternative
@@ -33,14 +35,14 @@ brew "gh"
 brew "git-delta"
 # Blazing fast terminal-ui for git written in rust
 brew "gitui"
+# Command-line hex viewer
+brew "hexyl"
 # Easy plain text accounting with command-line, terminal and web UIs
 brew "hledger"
 # Improved top (interactive process viewer)
 brew "htop"
 # Command-line pager for JSON data
 brew "jless"
-# Lightweight and flexible command-line JSON processor
-brew "jq"
 # Clone of ls with colorful output, file type icons, and more
 brew "lsd"
 # GUI for vim, made for macOS
@@ -98,5 +100,7 @@ cask "git-credential-manager"
 cask "iina"
 # Programmable solid 3D CAD modeller
 cask "openscad"
+# Tool that provides consistent, highly configurable symbols for apps
+cask "sf-symbols"
 # Multiplayer code editor
 cask "zed"
