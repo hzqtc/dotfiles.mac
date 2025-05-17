@@ -30,6 +30,9 @@ Plugin 'LunarWatcher/auto-pairs'
 " D2 syntax highlight
 Plugin 'terrastruct/d2-vim'
 
+" Visualize edit history
+Plugin 'mbbill/undotree'
+
 " All of your Plugins must be added before the following line
 call vundle#end()
 
@@ -51,7 +54,9 @@ set splitright
 set splitbelow
 set mousehide
 set mouse=a
-set ttymouse=xterm2
+if !has('nvim')
+  set ttymouse=xterm2
+endif
 set fileencodings=ucs-bom,utf-8,gb18030,gbk,gb2312,cp936
 set encoding=utf-8
 set nobackup
@@ -104,8 +109,7 @@ function! AirlineSectionZ()
   let colnum = col('.')
   let total = line('$')
   let scroll = float2nr(100.0 * lnum / total)
-  let win_size = winheight(0) . 'x' . winwidth(0)
-  return lnum . ':' . colnum . ' ' . scroll . '% ' . win_size
+  return lnum . ':' . colnum . ' ' . scroll . '% '
 endfunction
 let g:airline_section_z = '%{AirlineSectionZ()}'
 
@@ -121,6 +125,8 @@ nmap <F4> :b4<CR>
 nmap <F5> :NERDTreeToggle<CR>
 " Locate current file in nerdtree
 nmap <F6> :NERDTreeFind<CR>
+" Toggle Undotree
+nmap <F7> :UndotreeToggle<CR>
 " Toggle tag bar
 nmap <F8> :TagbarToggle<CR>
 " Navigate buffers
@@ -138,12 +144,10 @@ autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTa
 " Open the existing NERDTree on each new tab.
 autocmd BufWinEnter * if &buftype != 'quickfix' && getcmdwintype() == '' | silent NERDTreeMirror | endif
 
-if has("gui_running")
-  " only show gui tabline and icon, and use console instead of popup dialog
-  set guioptions=eic
-  set guifont=FiraCodeRoman-Regular:h13
+if has("gui_running") || exists("g:neovide")
+  set guifont=Fira\ Code:h13
   set lines=42
-  set columns=159
+  set columns=157
   " Light background before 8PM
   if strftime("%H") < 20
     set background=light
