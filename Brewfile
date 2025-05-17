@@ -47,10 +47,16 @@ brew "jless"
 brew "lsd"
 # GUI for vim, made for macOS
 brew "macvim"
+# Nice to use pager for humans
+brew "moar"
 # Command-line music player client for mpd
 brew "mpc"
 # Music Player Daemon
 brew "mpd", restart_service: :changed
+# Ambitious Vim-fork focused on extensibility and agility
+brew "neovim"
+# No Nonsense Neovim Client in Rust
+brew "neovide"
 # Shell command parallelization utility
 brew "parallel"
 # Modern replacement for ps written in Rust
@@ -61,6 +67,8 @@ brew "ranger"
 brew "rink"
 # Move files and directories to the trash
 brew "rmtrash"
+# Static analysis and lint tool, for (ba)sh scripts
+brew "shellcheck"
 # Cross-shell prompt for astronauts
 brew "starship"
 # TUI to view and query tabular files (CSV,TSV, Parquet, etc.)
@@ -102,5 +110,7 @@ cask "iina"
 cask "openscad"
 # Tool that provides consistent, highly configurable symbols for apps
 cask "sf-symbols"
+# REST, GraphQL and gRPC client
+cask "yaak"
 # Multiplayer code editor
 cask "zed"

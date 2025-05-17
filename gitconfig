@@ -14,10 +14,10 @@
   st = status
   c = commit
   p = push
-  l = log -n 10 --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
+  l = log -n 15 --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
 [core]
   pager = delta
-	excludesfile = /Users/hzqtc/.gitignore
+  excludesfile = /Users/hzqtc/.gitignore
 [interactive]
   diffFilter = delta --color-only
 [delta]
@@ -25,3 +25,5 @@
   side-by-side = true
 [merge]
   conflictStyle = zdiff3
+[pager]
+  log = false

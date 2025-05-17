@@ -16,6 +16,7 @@ autoload zmv
 eval "$(starship init zsh)"
 
 export LEDGER_FILE="/Users/hzqtc/Documents/hledger/hledger.journal"
+export PAGER=moar
 export EDITOR=vim
 export HOMEBREW_NO_AUTO_UPDATE=1
 

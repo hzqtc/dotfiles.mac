@@ -10,6 +10,7 @@ set -g fish_key_bindings fish_vi_key_bindings
 starship init fish | source
 
 set -gx LEDGER_FILE /Users/hzqtc/Documents/hledger/hledger.journal
+set -gx PAGER moar
 set -gx EDITOR vim
 set -gx HOMEBREW_NO_AUTO_UPDATE 1
 
