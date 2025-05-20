@@ -11,8 +11,6 @@ brew "bat"
 brew "ffmpeg"
 # Modern diagram scripting language that turns text to diagrams
 brew "d2"
-# Terminal visual disk space navigator
-brew "diskonaut"
 # Disk Usage/Free Utility - a better 'df' alternative
 brew "duf"
 # More intuitive version of du in rust
@@ -35,12 +33,16 @@ brew "gh"
 brew "git-delta"
 # Blazing fast terminal-ui for git written in rust
 brew "gitui"
+# Render markdown on the CLI
+brew "glow"
 # Command-line hex viewer
 brew "hexyl"
 # Easy plain text accounting with command-line, terminal and web UIs
 brew "hledger"
 # Improved top (interactive process viewer)
 brew "htop"
+# JQ clone focussed on correctness, speed, and simplicity
+brew "jaq"
 # Command-line pager for JSON data
 brew "jless"
 # Clone of ls with colorful output, file type icons, and more
@@ -57,8 +59,12 @@ brew "mpd", restart_service: :changed
 brew "neovim"
 # No Nonsense Neovim Client in Rust
 brew "neovide"
+# Command-line Git information tool
+brew "onefetch"
 # Shell command parallelization utility
 brew "parallel"
+# File download client
+brew "pget"
 # Modern replacement for ps written in Rust
 brew "procs"
 # File browser
