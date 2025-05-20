@@ -14,4 +14,8 @@ vmap <D-c> "+y
 map <D-s> :w<CR>
 imap <D-s> <Esc>:w<CR>gi
 vmap <D-s> <Esc>:w<CR>gv
+" Command + A to select all
+map <D-a> ggVG
+imap <D-a> <Esc>ggVG
+vmap <D-a> <Esc>ggVG
 

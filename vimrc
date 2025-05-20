@@ -33,6 +33,9 @@ Plugin 'terrastruct/d2-vim'
 " Visualize edit history
 Plugin 'mbbill/undotree'
 
+" Markdown table editing
+Plugin 'dhruvasagar/vim-table-mode'
+
 " All of your Plugins must be added before the following line
 call vundle#end()
 
@@ -77,6 +80,7 @@ set showcmd
 set showmode
 set tags=tags;
 set autochdir
+set noautoread
 set formatoptions=tcroqlmM
 set textwidth=150
 " Remember the following view options and restore automatically
@@ -144,10 +148,17 @@ autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTa
 " Open the existing NERDTree on each new tab.
 autocmd BufWinEnter * if &buftype != 'quickfix' && getcmdwintype() == '' | silent NERDTreeMirror | endif
 
+if exists("g:neovide")
+  set lines=42
+  set columns=160
+elseif has("gui_running")
+  set guioptions=egmic
+  set lines=42
+  set columns=159
+endif
+
 if has("gui_running") || exists("g:neovide")
   set guifont=Fira\ Code:h13
-  set lines=42
-  set columns=157
   " Light background before 8PM
   if strftime("%H") < 20
     set background=light
