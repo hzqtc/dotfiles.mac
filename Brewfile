@@ -1,3 +1,4 @@
+tap "charmbracelet/tap"
 tap "siddhantac/puffin"
 # Interpreted, interactive, object-oriented programming language
 brew "python@3.13"
@@ -91,6 +92,8 @@ brew "universal-ctags"
 brew "up"
 # Extremely fast Python package installer and resolver, written in Rust
 brew "uv"
+# Your CLI home video recorder
+brew "vhs"
 # Execute commands when watched files change
 brew "watchexec"
 # CSV CLI magician written in Rust
@@ -101,6 +104,8 @@ brew "xh"
 brew "yt-dlp"
 # Pluggable terminal workspace, with terminal multiplexer as the base feature
 brew "zellij"
+# Generate images of code and terminal output.
+brew "charmbracelet/tap/freeze"
 # A beautiful and simple terminal dashboard for hledger
 brew "siddhantac/puffin/puffin"
 # User-friendly GUI app for Homebrew
@@ -112,6 +117,8 @@ cask "font-fira-code"
 cask "git-credential-manager"
 # Free and open-source media player
 cask "iina"
+# Clipboard manager
+cask "maccy"
 # Programmable solid 3D CAD modeller
 cask "openscad"
 # Tool that provides consistent, highly configurable symbols for apps
