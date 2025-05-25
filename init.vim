@@ -1,5 +1,6 @@
 set runtimepath^=~/.vim runtimepath+=~/.vim/after
 let &packpath = &runtimepath
+
 source ~/.vimrc
 
 " Allow Command+<C,V,S> in neovim
@@ -22,3 +23,4 @@ vmap <D-a> <Esc>ggVG
 nmap <D-w> :q<CR>
 imap <D-a> <Esc>:q<CR>
 vmap <D-a> <Esc>:q<CR>
+

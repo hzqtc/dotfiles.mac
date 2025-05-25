@@ -1,46 +1,41 @@
 set nocompatible
 filetype off
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-" Let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
+call plug#begin()
 
 " Status bar
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 " Code structure outline
-Plugin 'preservim/tagbar'
+Plug 'preservim/tagbar'
 
 " Show diff in the sign column
-Plugin 'mhinz/vim-signify'
+Plug 'mhinz/vim-signify'
 
 " Papercolor color scheme
-Plugin 'NLKNguyen/papercolor-theme'
+Plug 'NLKNguyen/papercolor-theme'
 
 " File explorer
-Plugin 'preservim/nerdtree'
+Plug 'preservim/nerdtree'
 
 " Auto pairs
-Plugin 'LunarWatcher/auto-pairs'
+Plug 'LunarWatcher/auto-pairs'
 
 " D2 syntax highlight
-Plugin 'terrastruct/d2-vim'
+Plug 'terrastruct/d2-vim'
 
 " Visualize edit history
-Plugin 'mbbill/undotree'
+Plug 'mbbill/undotree'
 
 " Markdown table editing
-Plugin 'dhruvasagar/vim-table-mode'
+Plug 'dhruvasagar/vim-table-mode'
 
 " Applescript syntax highlight
-Plugin 'vim-scripts/applescript.vim'
+Plug 'vim-scripts/applescript.vim'
 
 " All of your Plugins must be added before the following line
-call vundle#end()
+call plug#end()
 
 filetype plugin indent on
 syntax enable
