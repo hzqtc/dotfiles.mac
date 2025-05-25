@@ -12,6 +12,8 @@ brew "bat"
 brew "ffmpeg"
 # Modern diagram scripting language that turns text to diagrams
 brew "d2"
+# View disk space usage and delete unwanted data, fast
+brew "dua-cli"
 # Disk Usage/Free Utility - a better 'df' alternative
 brew "duf"
 # More intuitive version of du in rust
@@ -20,6 +22,8 @@ brew "dust"
 brew "eget"
 # Calculator REPL, similar to bc(1)
 brew "eva"
+# Command-line batch renaming tool
+brew "f2"
 # Fast partial replacement for the codemod tool
 brew "fastmod"
 # Significantly faster alternative to the classic Unix cp(1) command
@@ -110,6 +114,8 @@ brew "charmbracelet/tap/freeze"
 brew "siddhantac/puffin/puffin"
 # User-friendly GUI app for Homebrew
 cask "applite"
+# OpenAI's official ChatGPT desktop app
+cask "chatgpt"
 # Photography workflow application and raw developer
 cask "darktable"
 cask "font-fira-code"
