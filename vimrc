@@ -36,11 +36,17 @@ Plugin 'mbbill/undotree'
 " Markdown table editing
 Plugin 'dhruvasagar/vim-table-mode'
 
+" Applescript syntax highlight
+Plugin 'vim-scripts/applescript.vim'
+
 " All of your Plugins must be added before the following line
 call vundle#end()
 
 filetype plugin indent on
 syntax enable
+
+" Force 2 spaces indent
+autocmd FileType * setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab
 
 " Quicker updates for 'vim-signify'
 set updatetime=100
@@ -83,6 +89,7 @@ set autochdir
 set noautoread
 set formatoptions=tcroqlmM
 set textwidth=150
+
 " Remember the following view options and restore automatically
 set viewoptions=folds,cursor,curdir
 autocmd BufWinLeave * silent! mkview
@@ -147,6 +154,9 @@ nmap <silent> <c-l> :wincmd l<CR>
 autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | call feedkeys(":quit\<CR>:\<BS>") | endif
 " Open the existing NERDTree on each new tab.
 autocmd BufWinEnter * if &buftype != 'quickfix' && getcmdwintype() == '' | silent NERDTreeMirror | endif
+
+" Set .as file as applescript
+autocmd BufRead,BufNewFile *.as set filetype=applescript
 
 if exists("g:neovide")
   set lines=42
