@@ -9,4 +9,5 @@
 ~/.tmux.conf
 ~/.sysinfo.sh
 ~/.Brewfile
+~/.brew-aliases
 ~/Library/Application Support/organize/config.yaml

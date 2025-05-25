@@ -13,6 +13,17 @@ while IFS= read -r file <&3; do
     name=${name#.}
     echo "$file => $name"
     cp "$file" "$name"
+  elif [ -d "$file" ]; then
+    dir=${file##*/}
+    dir=${dir#.}
+    echo "Copying all files in $dir"
+    if [ ! -d "$dir" ]; then
+      mkdir "$dir"
+    fi
+    for f in $(ls "$file"); do
+      echo "$file/$f => $dir/$f"
+      cp "$file/$f" "$dir/$r"
+    done
   else
     echo "Error: $file does not exist!"
   fi
