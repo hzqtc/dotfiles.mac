@@ -119,14 +119,32 @@ function! AirlineSectionZ()
 endfunction
 let g:airline_section_z = '%{AirlineSectionZ()}'
 
+" Switch to buffer by index (not buffer number)
+function! SwitchBuffer(index)
+  let l:list = []
+  for b in range(1, bufnr('$'))
+    if buflisted(b)
+      call add(l:list, b)
+    endif
+  endfor
+
+  if a:index >= 0 && a:index < len(l:list)
+    execute 'buffer' l:list[a:index]
+  else
+    echohl ErrorMsg
+    echom "Invalid buffer index: " . a:index
+    echohl None
+  endif
+endfunction
+
 " Y to copy to end of line
 map Y y$
-" Quick buffer navigation
-nmap <F1> :b1<CR>
-nmap <F2> :b2<CR>
-nmap <F3> :b3<CR>
-nmap <F4> :b4<CR>
 
+" Quick buffer navigation
+nmap <F1> :call SwitchBuffer(0)<CR>
+nmap <F2> :call SwitchBuffer(1)<CR>
+nmap <F3> :call SwitchBuffer(2)<CR>
+nmap <F4> :call SwitchBuffer(3)<CR>
 " Toggle nerd tree
 nmap <F5> :NERDTreeToggle<CR>
 " Locate current file in nerdtree
