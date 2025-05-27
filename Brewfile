@@ -20,6 +20,8 @@ brew "duf"
 brew "dust"
 # Easily install prebuilt binaries from GitHub
 brew "eget"
+# Run arbitrary commands when files change
+brew "entr"
 # Calculator REPL, similar to bc(1)
 brew "eva"
 # Command-line batch renaming tool
