@@ -34,6 +34,9 @@ Plug 'dhruvasagar/vim-table-mode'
 " Applescript syntax highlight
 Plug 'vim-scripts/applescript.vim'
 
+" Indent line indication
+Plug 'Yggdroot/indentLine'
+
 " All of your Plugins must be added before the following line
 call plug#end()
 
@@ -90,25 +93,45 @@ set viewoptions=folds,cursor,curdir
 autocmd BufWinLeave * silent! mkview
 autocmd BufWinEnter * silent! loadview
 
-" Config airline C section to show all buffers with active buffer name in []
+" Buffers list with the current buffer name in []
 function! AirlineBufferList()
   let buffers = filter(range(1, bufnr('$')), 'buflisted(v:val)')
   let names = []
   for b in buffers
-    let name = bufname(b) ==# '' ? '<New>' : fnamemodify(bufname(b), ':t')
+    let path = bufname(b)
+    if path ==# ''
+      let name = '<New>'
+    else
+      let parts = split(fnamemodify(path, ':~:.'), '/')
+      if len(parts) > 1
+        " Shorten all but the last part (the filename)
+        let last = remove(parts, -1)
+        let short_parts = map(parts, 'v:val[0]')
+        let name = join(short_parts, '/') . '/' . last
+      else
+        let name = parts[0]
+      endif
+    endif
+
     if getbufvar(b, '&modified')
       let name .= '*'
     endif
+
     if b == bufnr('')
-      " Current buffer: bold using airline's raw part
-      call add(names, printf('[%d:%s]', b, name))
+      call add(names, printf('[%s]', name))
     else
-      call add(names, printf('%d:%s', b, name))
+      call add(names, name)
     endif
   endfor
   return join(names, ' | ')
 endfunction
 let g:airline_section_c = '%{AirlineBufferList()}'
+"
+" Current working directory
+function! AirlineCwd()
+  return fnamemodify(getcwd(), ':~:.')
+endfunction
+let g:airline_section_y = '%{AirlineCwd()}'
 
 function! AirlineSectionZ()
   let lnum = line('.')
@@ -156,17 +179,21 @@ nmap <F8> :TagbarToggle<CR>
 " Navigate buffers
 nmap <F9> :bprevious<CR>
 nmap <F10> :bnext<CR>
+" Close all buffers with confirmation
+nmap <F12> :call ConfirmCloseAllBuffers()<CR>
+
+function! ConfirmCloseAllBuffers()
+  let answer = input("Close all buffers? (y/N): ")
+  if tolower(answer) ==# 'y'
+    bufdo bw
+  endif
+endfunction
 
 " Use ctrl-[hjkl] to select the active split!
 nmap <silent> <c-k> :wincmd k<CR>
 nmap <silent> <c-j> :wincmd j<CR>
 nmap <silent> <c-h> :wincmd h<CR>
 nmap <silent> <c-l> :wincmd l<CR>
-
-" Close the tab if NERDTree is the only window remaining in it.
-autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | call feedkeys(":quit\<CR>:\<BS>") | endif
-" Open the existing NERDTree on each new tab.
-autocmd BufWinEnter * if &buftype != 'quickfix' && getcmdwintype() == '' | silent NERDTreeMirror | endif
 
 " Set .as file as applescript
 autocmd BufRead,BufNewFile *.as set filetype=applescript

@@ -1,3 +1,5 @@
+neovim-remote v2.5.1
+- nvr
 organize-tool v3.3.0
 - organize
 posting v2.7.0

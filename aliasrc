@@ -11,9 +11,13 @@ alias du='dust'
 alias df='duf'
 alias cp='fcp'
 alias jq='jaq'
-alias vim=nvim
 alias rm='rmtrash'
 alias tw='tw --theme catppuccin'
 alias sc='shellcheck -e SC2090,SC2086,SC2089,SC2155'
+
+alias nvim='nvim --listen /tmp/nvimsocket'
+alias vim=nvim
+alias neovide='neovide -- --listen /tmp/nvimsocket'
+alias nvro='nvr --remote'
 
 alias dlm='yt-dlp --extract-audio --add-metadata --embed-thumbnail --audio-quality 0 --output "~/Music/mpd/%(title)s.%(ext)s"'
