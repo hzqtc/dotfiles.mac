@@ -21,7 +21,7 @@ function view
     case '*.md' '*.markdown'
       glow -p "$file"
     case '*.csv'
-      tw "$file"
+      tw --theme catppuccin "$file"
     case '*'
       set filetype (file --brief "$file")
       if string match -q '*text*' "$filetype"

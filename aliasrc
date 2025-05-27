@@ -6,18 +6,21 @@ alias la='ls -A'
 alias lll='ll -A'
 alias lt='ll --tree'
 
+# Morden alternatives to trandition unix commands
 alias cat='bat'
 alias du='dust'
 alias df='duf'
 alias cp='fcp'
 alias jq='jaq'
 alias rm='rmtrash'
-alias tw='tw --theme catppuccin'
+
 alias sc='shellcheck -e SC2090,SC2086,SC2089,SC2155'
 
-alias nvim='nvim --listen /tmp/nvimsocket'
-alias vim=nvim
-alias neovide='neovide -- --listen /tmp/nvimsocket'
+# NeoVide Remote Server: launch neovide with server mode
+alias nvrs='neovide -- --listen /tmp/nvimsocket'
+# NeoVide Remote Open: open file in existing neovide window
 alias nvro='nvr --remote'
 
 alias dlm='yt-dlp --extract-audio --add-metadata --embed-thumbnail --audio-quality 0 --output "~/Music/mpd/%(title)s.%(ext)s"'
+
+# vim: filetype=sh
