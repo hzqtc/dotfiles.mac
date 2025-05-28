@@ -8,7 +8,6 @@
 ~/.config/fish/fish_plugins
 ~/.tmux.conf
 ~/.local/bin/sysinfo.sh
-~/.local/bin/pathcompat.sh
+~/.local/bin/tildepath.sh
 ~/.Brewfile
-~/.brew-aliases
 ~/Library/Application Support/organize/config.yaml
