@@ -1,11 +1,22 @@
 #!/bin/bash
 
+BREW_DUMP=false
+
+# Parse arguments
+for arg in "$@"; do
+  case $arg in
+    --brew-dump)
+      BREW_DUMP=true
+      ;;
+  esac
+done
+
 # Read file on descriptor 3 instead of stdin
 # This way `read ans` would not be affected by the content in the file
 while IFS= read -r file <&3; do
   file=$(eval echo $file)
   if [ -f "$file" ]; then
-    if [[ "$file" =~ ".Brewfile" ]]; then
+    if [[ "$file" =~ ".Brewfile" && "$BREW_DUMP" == true ]]; then
       echo "Updating $file"
       brew bundle dump --global --describe --force 2>/dev/null
     fi
