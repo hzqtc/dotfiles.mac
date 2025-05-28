@@ -37,6 +37,18 @@ Plug 'vim-scripts/applescript.vim'
 " Indent line indication
 Plug 'Yggdroot/indentLine'
 
+" Fancy start screen
+Plug 'mhinz/vim-startify'
+
+" Quickly change between single-line and multi-line code syntax
+Plug 'AndrewRadev/splitjoin.vim'
+
+" Quickly comment/uncomment code
+Plug 'tpope/vim-commentary'
+
+" Surround or remove surrounding symbols (e.g. ", ', {, [)
+Plug 'tpope/vim-surround'
+
 " All of your Plugins must be added before the following line
 call plug#end()
 
@@ -53,12 +65,14 @@ set smartindent
 set tabstop=2
 set shiftwidth=2
 set softtabstop=2
+set shiftround
 set smarttab
 set expandtab
 set backspace=indent,eol,start
 set nofoldenable
 set splitright
 set splitbelow
+set cursorline
 set mousehide
 set mouse=a
 if !has('nvim')
@@ -72,7 +86,8 @@ set hidden
 set ignorecase
 set smartcase
 set incsearch
-" replace with 'g' option in default
+set hlsearch
+set wrapscan
 set gdefault
 set wildmenu
 set novisualbell
@@ -87,6 +102,10 @@ set autochdir
 set noautoread
 set formatoptions=tcroqlmM
 set textwidth=150
+
+if &shell =~# 'fish$'
+  set shell=/bin/bash
+endif
 
 " Remember the following view options and restore automatically
 set viewoptions=folds,cursor,curdir
@@ -106,7 +125,7 @@ function! AirlineBufferList()
       if len(parts) > 1
         " Shorten all but the last part (the filename)
         let last = remove(parts, -1)
-        let short_parts = map(parts, 'v:val[0]')
+        let short_parts = map(parts, {_, val -> (val[0] ==# '.' ? val[:1] : val[0])})
         let name = join(short_parts, '/') . '/' . last
       else
         let name = parts[0]
@@ -126,7 +145,7 @@ function! AirlineBufferList()
   return join(names, ' | ')
 endfunction
 let g:airline_section_c = '%{AirlineBufferList()}'
-"
+
 " Current working directory
 function! AirlineCwd()
   return fnamemodify(getcwd(), ':~:.')
