@@ -3,6 +3,8 @@ let &packpath = &runtimepath
 
 source ~/.vimrc
 
+let mapleader = "\\"
+
 " Allow Command+<C,V,S> in neovim
 let g:neovide_input_use_logo = 1
 " Command+V to paste
@@ -19,8 +21,3 @@ vmap <D-s> <Esc>:w<CR>gv
 nmap <D-a> ggVG
 imap <D-a> <Esc>ggVG
 vmap <D-a> <Esc>ggVG
-" Command + W to close window
-nmap <D-w> :q<CR>
-imap <D-a> <Esc>:q<CR>
-vmap <D-a> <Esc>:q<CR>
-

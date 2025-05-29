@@ -116,6 +116,8 @@ autocmd BufWinEnter * silent! loadview
 function! AirlineBufferList()
   let buffers = filter(range(1, bufnr('$')), 'buflisted(v:val)')
   let names = []
+  " Show buffers' indexes rather than buffer numbers
+  let index = 1
   for b in buffers
     let path = bufname(b)
     if path ==# ''
@@ -133,14 +135,15 @@ function! AirlineBufferList()
     endif
 
     if getbufvar(b, '&modified')
-      let name .= '*'
+      let name .= ' *'
     endif
 
     if b == bufnr('')
-      call add(names, printf('[%s]', name))
+      call add(names, printf('[%d %s]', index, name))
     else
-      call add(names, name)
+      call add(names, printf('%d %s', index, name))
     endif
+    let index += 1
   endfor
   return join(names, ' | ')
 endfunction
@@ -180,7 +183,23 @@ function! SwitchBuffer(index)
 endfunction
 
 " Y to copy to end of line
-map Y y$
+nmap Y y$
+" Close current buffer
+nmap <leader>x :bw<CR>
+" Clear highlights
+nmap <leader>h :nohl<CR>
+" Open Startify
+nmap <leader>s :Startify<CR>
+" Toggle background between light and dark
+nmap <leader>b :call ToggleBackground()<CR>
+
+function! ToggleBackground()
+  if &background ==# "dark"
+    set background=light
+  else
+    set background=dark
+  endif
+endfunction
 
 " Quick buffer navigation
 nmap <F1> :call SwitchBuffer(0)<CR>

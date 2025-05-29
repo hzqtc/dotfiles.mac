@@ -16,11 +16,7 @@ alias rm='rmtrash'
 
 alias sc='shellcheck -e SC2090,SC2086,SC2089,SC2155'
 alias tw='tw --theme catppuccin'
-
-# NeoVide Remote Server: launch neovide with server mode
-alias nvrs='neovide -- --listen /tmp/nvimsocket'
-# NeoVide Remote Open: open file in existing neovide window
-alias nvro='nvr --remote'
+alias nvo='nvr --remote'
 
 alias dlm='yt-dlp --extract-audio --add-metadata --embed-thumbnail --audio-quality 0 --output "~/Music/mpd/%(title)s.%(ext)s"'
 
