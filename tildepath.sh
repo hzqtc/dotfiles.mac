@@ -1,16 +1,18 @@
 #!/usr/bin/env bash
 
-# Check if a path was provided
 if [ -z "$1" ]; then
-  echo "Usage: $0 <unix_path>" >&2
+  echo "Usage: $0 <path>" >&2
   exit 1
 fi
 
-# Get the input path
 input_path="$1"
 
 # Replace $HOME with ~
-home_replaced="${input_path/#$HOME/~}"
+if [[ "$input_path" == "$HOME"* ]]; then
+  home_replaced="~${input_path#$HOME}"
+else
+  home_replaced="$input_path"
+fi
 
 IFS='/' read -ra parts <<< "$home_replaced"
 shortened_path=""
