@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 copy_to_destination() {
   local file="$1"

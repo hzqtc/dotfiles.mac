@@ -1,6 +1,7 @@
 ~/.vimrc
 ~/.config/nvim/init.vim
 ~/.zshrc
+~/.bashrc
 ~/.aliasrc
 ~/.gitconfig
 ~/.gitignore

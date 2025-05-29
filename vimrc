@@ -49,6 +49,9 @@ Plug 'tpope/vim-commentary'
 " Surround or remove surrounding symbols (e.g. ", ', {, [)
 Plug 'tpope/vim-surround'
 
+" Automatic session management
+Plug 'tpope/vim-obsession'
+
 " All of your Plugins must be added before the following line
 call plug#end()
 
@@ -102,10 +105,6 @@ set autochdir
 set noautoread
 set formatoptions=tcroqlmM
 set textwidth=150
-
-if &shell =~# 'fish$'
-  set shell=/bin/bash
-endif
 
 " Remember the following view options and restore automatically
 set viewoptions=folds,cursor,curdir
@@ -246,7 +245,7 @@ elseif has("gui_running")
 endif
 
 if has("gui_running") || exists("g:neovide")
-  set guifont=Fira\ Code:h13
+  set guifont=FiraCode\ Nerd\ Font:h13
   " Light background before 8PM
   if strftime("%H") < 20
     set background=light

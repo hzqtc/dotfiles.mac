@@ -1,11 +1,15 @@
 tap "charmbracelet/tap"
 tap "siddhantac/puffin"
+# All-in-one AI-Powered CLI Chat & Copilot
+brew "aichat"
 # Interpreted, interactive, object-oriented programming language
 brew "python@3.13"
 # Record and share terminal sessions
 brew "asciinema"
 # Terminal bandwidth utilization tool
 brew "bandwhich"
+# Bourne-Again SHell, a UNIX command interpreter
+brew "bash"
 # Clone of cat(1) with syntax highlighting and Git integration
 brew "bat"
 # Play, record, convert, and stream audio and video
@@ -56,6 +60,8 @@ brew "jless"
 brew "lsd"
 # GUI for vim, made for macOS
 brew "macvim"
+# Utility for directing compilation
+brew "make"
 # Nice to use pager for humans
 brew "moar"
 # Command-line music player client for mpd
@@ -102,14 +108,14 @@ brew "uv"
 brew "vhs"
 # Execute commands when watched files change
 brew "watchexec"
+# Internet file retriever
+brew "wget"
 # CSV CLI magician written in Rust
 brew "xan"
 # Friendly and fast tool for sending HTTP requests
 brew "xh"
 # Feature-rich command-line audio/video downloader
 brew "yt-dlp"
-# Pluggable terminal workspace, with terminal multiplexer as the base feature
-brew "zellij"
 # Generate images of code and terminal output.
 brew "charmbracelet/tap/freeze"
 # A beautiful and simple terminal dashboard for hledger
@@ -121,6 +127,7 @@ cask "chatgpt"
 # Photography workflow application and raw developer
 cask "darktable"
 cask "font-fira-code"
+cask "font-fira-code-nerd-font"
 # Cross-platform Git credential storage for multiple hosting providers
 cask "git-credential-manager"
 # Free and open-source media player
