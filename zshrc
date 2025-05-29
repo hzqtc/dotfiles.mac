@@ -16,6 +16,11 @@ autoload zmv
 function view() {
   local file="$1"
 
+  if [[ -z "$file" ]]; then
+    echo "view: no file specified"
+    return 1
+  fi
+
   if [[ ! -f "$file" ]]; then
     echo "view: file not found: $file"
     return 1
@@ -33,11 +38,21 @@ function view() {
       ;;
     *)
       local filetype=$(file --brief "$file")
-      if [[ "$filetype" == *"text"* ]]; then
-        bat "$file"
-      else
-        hexyl "$file"
-      fi
+      filetype=${filetype:l}
+      case "$filetype" in
+        *json*)
+          jless "$file"
+          ;;
+        *csv*)
+          tw "$file"
+          ;;
+        *text*)
+          bat "$file"
+          ;;
+        *)
+          hexyl "$file"
+          ;;
+      esac
       ;;
   esac
 }

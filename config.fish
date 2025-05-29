@@ -10,6 +10,10 @@ set -g fish_key_bindings fish_vi_key_bindings
 function view
   set file $argv[1]
 
+  if test -z "$file"
+    echo "view: no file specified"
+    return 1
+  end
   if not test -f "$file"
     echo "view: file not found: $file"
     return 1
@@ -21,13 +25,20 @@ function view
     case '*.md' '*.markdown'
       glow -p "$file"
     case '*.csv'
-      tw --theme catppuccin "$file"
+      tw "$file"
     case '*'
       set filetype (file --brief "$file")
-      if string match -q '*text*' "$filetype"
-        bat "$file"
-      else
-        hexyl "$file"
+      set filetype (string lower "$filetype")
+      switch "$filetype"
+        case '*json*'
+          jless "$file"
+        case '*csv*'
+          tw "$file"
+        case '*text*'
+          bat "$file"
+        case '*'
+          # Fall back to binary format
+          hexyl "$file"
       end
   end
 end
