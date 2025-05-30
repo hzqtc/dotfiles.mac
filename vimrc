@@ -92,6 +92,7 @@ set incsearch
 set hlsearch
 set wrapscan
 set gdefault
+set completeopt+=noselect
 set wildmenu
 set novisualbell
 set noerrorbells
@@ -110,6 +111,12 @@ set textwidth=150
 set viewoptions=folds,cursor,curdir
 autocmd BufWinLeave * silent! mkview
 autocmd BufWinEnter * silent! loadview
+
+" Don't autofold
+set foldlevelstart=99
+" Set foldmethod to 'diff' when in diff mode, 'indent' otherwise
+autocmd WinEnter,BufWinEnter * if &diff | setlocal foldmethod=diff | else | setlocal foldmethod=indent | endif
+autocmd OptionSet diff if &diff | setlocal foldmethod=diff | else | setlocal foldmethod=indent | endif
 
 " Buffers list with the current buffer name in []
 function! AirlineBufferList()
@@ -181,6 +188,8 @@ function! SwitchBuffer(index)
   endif
 endfunction
 
+" <tab> to auto complete
+imap <Tab> <C-n>
 " Y to copy to end of line
 nmap Y y$
 " Close current buffer
