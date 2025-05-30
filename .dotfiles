@@ -3,6 +3,7 @@
 ~/.zshrc
 ~/.bashrc
 ~/.aliasrc
+~/.config/starship.toml
 ~/.gitconfig
 ~/.gitignore
 ~/.config/fish/config.fish

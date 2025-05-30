@@ -1,4 +1,4 @@
-source .aliasrc
+source ~/.aliasrc
 
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
