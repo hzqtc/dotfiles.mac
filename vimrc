@@ -58,7 +58,7 @@ call plug#end()
 filetype plugin indent on
 syntax enable
 
-" Force 2 spaces indent
+" Force 2 spaces indent on all file types
 autocmd FileType * setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab
 
 " Quicker updates for 'vim-signify'
@@ -194,12 +194,25 @@ imap <Tab> <C-n>
 nmap Y y$
 " Close current buffer
 nmap <leader>x :bw<CR>
+" Close all buffers with confirmation
+nmap <leader>X :call ConfirmCloseAllBuffers()<CR>
 " Clear highlights
 nmap <leader>h :nohl<CR>
 " Open Startify
 nmap <leader>s :Startify<CR>
 " Toggle background between light and dark
 nmap <leader>b :call ToggleBackground()<CR>
+" Source ~/.vimrc
+nmap <leader>r :source ~/.vimrc<CR>
+" Create an empty buffer
+nmap <leader>n :enew<CR>
+
+function! ConfirmCloseAllBuffers()
+  let answer = input("Close all buffers? (y/N): ")
+  if tolower(answer) ==# 'y'
+    bufdo bw
+  endif
+endfunction
 
 function! ToggleBackground()
   if &background ==# "dark"
@@ -209,11 +222,13 @@ function! ToggleBackground()
   endif
 endfunction
 
-" Quick buffer navigation
-nmap <F1> :call SwitchBuffer(0)<CR>
-nmap <F2> :call SwitchBuffer(1)<CR>
-nmap <F3> :call SwitchBuffer(2)<CR>
-nmap <F4> :call SwitchBuffer(3)<CR>
+" Switch buffer by index (starting with 1). Note: not by buffer number.
+for i in range(1, 9)
+  execute 'nmap <leader>' . i . ' :call SwitchBuffer(' . (i - 1) . ')<CR>'
+endfor
+" Navigate buffers
+nmap <F2> :bprevious<CR>
+nmap <F3> :bnext<CR>
 " Toggle nerd tree
 nmap <F5> :NERDTreeToggle<CR>
 " Locate current file in nerdtree
@@ -222,18 +237,6 @@ nmap <F6> :NERDTreeFind<CR>
 nmap <F7> :UndotreeToggle<CR>
 " Toggle tag bar
 nmap <F8> :TagbarToggle<CR>
-" Navigate buffers
-nmap <F9> :bprevious<CR>
-nmap <F10> :bnext<CR>
-" Close all buffers with confirmation
-nmap <F12> :call ConfirmCloseAllBuffers()<CR>
-
-function! ConfirmCloseAllBuffers()
-  let answer = input("Close all buffers? (y/N): ")
-  if tolower(answer) ==# 'y'
-    bufdo bw
-  endif
-endfunction
 
 " Use ctrl-[hjkl] to select the active split!
 nmap <silent> <c-k> :wincmd k<CR>
