@@ -1,7 +1,10 @@
 tap "charmbracelet/tap"
 tap "siddhantac/puffin"
+tap "valkyrie00/bbrew"
 # All-in-one AI-Powered CLI Chat & Copilot
 brew "aichat"
+# Easily create and use cli based on bash script
+brew "argc"
 # Interpreted, interactive, object-oriented programming language
 brew "python@3.13"
 # Record and share terminal sessions
@@ -14,6 +17,8 @@ brew "bash"
 brew "bat"
 # Play, record, convert, and stream audio and video
 brew "ffmpeg"
+# Generates code snapshots in various formats
+brew "codesnap"
 # Modern diagram scripting language that turns text to diagrams
 brew "d2"
 # View disk space usage and delete unwanted data, fast
@@ -30,6 +35,8 @@ brew "entr"
 brew "eva"
 # Command-line batch renaming tool
 brew "f2"
+# Like neofetch, but much faster because written mostly in C
+brew "fastfetch"
 # Fast partial replacement for the codemod tool
 brew "fastmod"
 # Significantly faster alternative to the classic Unix cp(1) command
@@ -84,6 +91,8 @@ brew "procs"
 brew "ranger"
 # Unit conversion tool and library written in rust
 brew "rink"
+# Search tool like grep and The Silver Searcher
+brew "ripgrep"
 # Move files and directories to the trash
 brew "rmtrash"
 # Static analysis and lint tool, for (ba)sh scripts
@@ -120,6 +129,8 @@ brew "yt-dlp"
 brew "charmbracelet/tap/freeze"
 # A beautiful and simple terminal dashboard for hledger
 brew "siddhantac/puffin/puffin"
+# A simple TUI tool to make your brews bold.
+brew "valkyrie00/bbrew/bbrew"
 # User-friendly GUI app for Homebrew
 cask "applite"
 # OpenAI's official ChatGPT desktop app
