@@ -94,6 +94,7 @@ set wrapscan
 set gdefault
 set completeopt+=noselect
 set wildmenu
+set wildignore+=*/*.egg-info/**,*/.git/*,*/dist/**,*/__pycache__/**
 set novisualbell
 set noerrorbells
 set nu
@@ -111,6 +112,8 @@ set textwidth=150
 set viewoptions=folds,cursor,curdir
 autocmd BufWinLeave * silent! mkview
 autocmd BufWinEnter * silent! loadview
+" Always set cursor to the first line first column when editing a git commit message
+autocmd FileType gitcommit call cursor(1, 1)
 
 " Don't autofold
 set foldlevelstart=99
@@ -202,6 +205,8 @@ nmap <leader>h :nohl<CR>
 nmap <leader>s :Startify<CR>
 " Toggle background between light and dark
 nmap <leader>b :call ToggleBackground()<CR>
+" Edit ~/.vimrc
+nmap <leader>e :e ~/.vimrc<CR>
 " Source ~/.vimrc
 nmap <leader>r :source ~/.vimrc<CR>
 " Create an empty buffer
