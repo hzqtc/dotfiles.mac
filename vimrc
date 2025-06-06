@@ -35,7 +35,16 @@ Plug 'dhruvasagar/vim-table-mode'
 Plug 'vim-scripts/applescript.vim'
 
 " Indent line indication
-Plug 'Yggdroot/indentLine'
+if has('nvim')
+  Plug 'echasnovski/mini.indentscope'
+else
+  Plug 'Yggdroot/indentLine'
+endif
+
+" Move text
+Plug 'matze/vim-move'
+let g:move_key_modifier = 'C'
+let g:move_key_modifier_visualmode = 'C'
 
 " Fancy start screen
 Plug 'mhinz/vim-startify'
@@ -51,6 +60,11 @@ Plug 'tpope/vim-surround'
 
 " Automatic session management
 Plug 'tpope/vim-obsession'
+
+if has('nvim')
+  " Faster search
+  Plug 'folke/flash.nvim'
+endif
 
 " All of your Plugins must be added before the following line
 call plug#end()
@@ -205,10 +219,12 @@ nmap <leader>h :nohl<CR>
 nmap <leader>s :Startify<CR>
 " Toggle background between light and dark
 nmap <leader>b :call ToggleBackground()<CR>
-" Edit ~/.vimrc
+" Edit .vimrc
 nmap <leader>e :e ~/.vimrc<CR>
-" Source ~/.vimrc
-nmap <leader>r :source ~/.vimrc<CR>
+" Edit init.vim
+nmap <leader>E :e ~/.config/nvim/init.vim<CR>
+" Source current file.
+nmap <leader>r :source %<CR>
 " Create an empty buffer
 nmap <leader>n :enew<CR>
 
@@ -231,9 +247,10 @@ endfunction
 for i in range(1, 9)
   execute 'nmap <leader>' . i . ' :call SwitchBuffer(' . (i - 1) . ')<CR>'
 endfor
-" Navigate buffers
-nmap <F2> :bprevious<CR>
-nmap <F3> :bnext<CR>
+nmap <F1> :call SwitchBuffer(0)<CR>
+nmap <F2> :call SwitchBuffer(1)<CR>
+nmap <F3> :call SwitchBuffer(2)<CR>
+nmap <F4> :call SwitchBuffer(3)<CR>
 " Toggle nerd tree
 nmap <F5> :NERDTreeToggle<CR>
 " Locate current file in nerdtree
@@ -242,6 +259,9 @@ nmap <F6> :NERDTreeFind<CR>
 nmap <F7> :UndotreeToggle<CR>
 " Toggle tag bar
 nmap <F8> :TagbarToggle<CR>
+" Navigate buffers
+nmap <F9> :bprevious<CR>
+nmap <F10> :bnext<CR>
 
 " Use ctrl-[hjkl] to select the active split!
 nmap <silent> <c-k> :wincmd k<CR>
@@ -257,11 +277,12 @@ if exists("g:neovide")
   set columns=160
 elseif has("gui_running")
   set guioptions=egmic
-  set lines=42
+  set lines=35
   set columns=159
 endif
 
 if has("gui_running") || exists("g:neovide")
+  set showtabline=0
   set guifont=FiraCode\ Nerd\ Font:h13
   " Light background before 8PM
   if strftime("%H") < 20
