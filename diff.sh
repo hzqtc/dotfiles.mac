@@ -12,23 +12,31 @@ if [ ! -f "$target" ]; then
   exit 1
 fi
 
-# Locate the original dot file that corresponds to "$target"
+if command -v difft >/dev/null 2>&1; then
+  diff_tool=(difft --display side-by-side-show-both)
+elif command -v nvim >/dev/null 2>&1; then
+  diff_tool=(nvim -d)
+else
+  diff_tool=(vim -d)
+fi
+
 while IFS= read -r file; do
-  file=$(eval echo $file)
+  file="${file/#\~/$HOME}"
   if [ -f "$file" ]; then
-    name=${file##*/}
-    name=${name#.}
+    name="${file##*/}"
+    name="${name#.}"
     if [[ "$name" == "$target" ]]; then
-      nvim -d "$file" "$target"
+      "${diff_tool[@]}" "$file" "$target"
       exit 0
     fi
   elif [ -d "$file" ]; then
-    dir=${file##*/}
-    dir=${dir#.}
-    for f in $(ls "$file"); do
-      if [[ "$dir/$f" == "$target" ]]; then
-        nvim -d "$file/$f" "$target"
-      exit 0
+    dir="${file##*/}"
+    dir="${dir#.}"
+    for f in "$file"/*; do
+      f_name=$(basename "$f")
+      if [[ "$dir/$f_name" == "$target" ]]; then
+        "${diff_tool[@]}" "$f" "$target"
+        exit 0
       fi
     done
   else

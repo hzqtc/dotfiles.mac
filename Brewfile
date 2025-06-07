@@ -21,6 +21,8 @@ brew "ffmpeg"
 brew "codesnap"
 # Modern diagram scripting language that turns text to diagrams
 brew "d2"
+# Diff that understands syntax
+brew "difftastic"
 # View disk space usage and delete unwanted data, fast
 brew "dua-cli"
 # Disk Usage/Free Utility - a better 'df' alternative
@@ -47,8 +49,6 @@ brew "fd"
 brew "fish"
 # GitHub command-line tool
 brew "gh"
-# Syntax-highlighting pager for git and diff output
-brew "git-delta"
 # Blazing fast terminal-ui for git written in rust
 brew "gitui"
 # Render markdown on the CLI

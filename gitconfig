@@ -4,27 +4,24 @@
 [credential]
   helper = /usr/local/share/gcm-core/git-credential-manager
 [diff]
-  tool = gvimdiff
+  external = difft
+  tool = difftastic
 [difftool]
   prompt = false
+[difftool "difftastic"]
+  cmd = difft --display side-by-side-show-both "$MERGED" "$LOCAL" "abcdef1" "100644" "$REMOTE" "abcdef2" "100644"
 [alias]
   aa = add .
-  d = diff
-  dh = diff HEAD
+  d = difftool
   st = status
   c = commit
   p = push
   ll = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
   l = log -n 15 --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
 [core]
-  pager = delta
   excludesfile = /Users/hzqtc/.gitignore
-[interactive]
-  diffFilter = delta --color-only
-[delta]
-  navigate = true
-  side-by-side = true
 [merge]
   conflictStyle = zdiff3
 [pager]
   log = false
+  difftool = true
