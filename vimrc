@@ -64,6 +64,8 @@ Plug 'tpope/vim-obsession'
 if has('nvim')
   " Faster search
   Plug 'folke/flash.nvim'
+  " Auto fix typos
+  Plug 'ck-zhang/mistake.nvim'
 endif
 
 " All of your Plugins must be added before the following line
@@ -103,7 +105,6 @@ set hidden
 set ignorecase
 set smartcase
 set incsearch
-set hlsearch
 set wrapscan
 set gdefault
 set completeopt+=noselect
@@ -135,6 +136,42 @@ set foldlevelstart=99
 autocmd WinEnter,BufWinEnter * if &diff | setlocal foldmethod=diff | else | setlocal foldmethod=indent | endif
 autocmd OptionSet diff if &diff | setlocal foldmethod=diff | else | setlocal foldmethod=indent | endif
 
+let g:filetype_icons = {
+      \ 'python':     '',
+      \ 'javascript': '',
+      \ 'typescript': '',
+      \ 'html':       '',
+      \ 'css':        '',
+      \ 'scss':       '',
+      \ 'json':       '',
+      \ 'yaml':       '',
+      \ 'toml':       '',
+      \ 'markdown':   '',
+      \ 'lua':        '',
+      \ 'vim':        '',
+      \ 'sh':         '',
+      \ 'zsh':        '',
+      \ 'bash':       '',
+      \ 'make':       '',
+      \ 'c':          '',
+      \ 'cpp':        '',
+      \ 'java':       '',
+      \ 'go':         '',
+      \ 'rust':       '',
+      \ 'php':        '',
+      \ 'ruby':       '',
+      \ 'perl':       '',
+      \ 'r':          '󰟔',
+      \ 'dockerfile': '',
+      \ 'gitcommit':  '',
+      \ 'gitconfig':  '',
+      \ 'text':       '',
+      \ 'conf':       '',
+      \ 'ini':        '',
+      \ 'sql':        '',
+      \ 'default':    '',
+      \ }
+
 " Buffers list with the current buffer name in []
 function! AirlineBufferList()
   let buffers = filter(range(1, bufnr('$')), 'buflisted(v:val)')
@@ -143,6 +180,8 @@ function! AirlineBufferList()
   let index = 1
   for b in buffers
     let path = bufname(b)
+    let ft = getbufvar(b, '&filetype')
+    let icon = get(g:filetype_icons, ft, g:filetype_icons['default'])
     if path ==# ''
       let name = '<New>'
     else
@@ -162,15 +201,22 @@ function! AirlineBufferList()
     endif
 
     if b == bufnr('')
-      call add(names, printf('[%d %s]', index, name))
+      call add(names, printf('[%d %s %s]', index, icon, name))
     else
-      call add(names, printf('%d %s', index, name))
+      call add(names, printf('%d %s %s', index, icon, name))
     endif
     let index += 1
   endfor
   return join(names, ' | ')
 endfunction
 let g:airline_section_c = '%{AirlineBufferList()}'
+
+function! AirlineFiletype()
+  let ft = &filetype
+  return get(g:filetype_icons, ft, g:filetype_icons['default']) . ' ' . ft
+endfunction
+
+let g:airline_section_x = '%{AirlineFiletype()}'
 
 " Current working directory
 function! AirlineCwd()
@@ -179,11 +225,19 @@ endfunction
 let g:airline_section_y = '%{AirlineCwd()}'
 
 function! AirlineSectionZ()
+  let os_icon = ''
+  if has('mac') || has('macunix') || has('osx')
+    let os_icon = "󰀵"
+  elseif has('unix') && !has('macunix')
+    let os_icon = "󰌽"
+  elseif has('win32') || has('win64')
+    let os_icon = "󰍲"
+  endif
   let lnum = line('.')
   let colnum = col('.')
   let total = line('$')
   let scroll = float2nr(100.0 * lnum / total)
-  return lnum . ':' . colnum . ' ' . scroll . '% '
+  return os_icon . ' ' . lnum . ':' . colnum . ' ' . scroll . '% '
 endfunction
 let g:airline_section_z = '%{AirlineSectionZ()}'
 
@@ -205,16 +259,14 @@ function! SwitchBuffer(index)
   endif
 endfunction
 
-" <tab> to auto complete
-imap <Tab> <C-n>
 " Y to copy to end of line
 nmap Y y$
 " Close current buffer
 nmap <leader>x :bw<CR>
 " Close all buffers with confirmation
 nmap <leader>X :call ConfirmCloseAllBuffers()<CR>
-" Clear highlights
-nmap <leader>h :nohl<CR>
+" Toggle search highlights
+nmap <leader>h :set hlsearch!<CR>
 " Open Startify
 nmap <leader>s :Startify<CR>
 " Toggle background between light and dark
