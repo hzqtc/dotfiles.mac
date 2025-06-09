@@ -23,6 +23,7 @@ require("flash").setup({
   },
 })
 require('mini.indentscope').setup()
+require('mistake').setup()
 EOF
 
 " Enable logo (Command/Windows) key support in Neovide
