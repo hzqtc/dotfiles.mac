@@ -197,7 +197,7 @@ function! AirlineBufferList()
     endif
 
     if getbufvar(b, '&modified')
-      let name .= ' *'
+      let name .= ' ●'
     endif
 
     if b == bufnr('')
@@ -299,10 +299,15 @@ endfunction
 for i in range(1, 9)
   execute 'nmap <leader>' . i . ' :call SwitchBuffer(' . (i - 1) . ')<CR>'
 endfor
+" Quick dial for buffer 1-4
 nmap <F1> :call SwitchBuffer(0)<CR>
+imap <F1> <Esc>:call SwitchBuffer(0)<CR>
 nmap <F2> :call SwitchBuffer(1)<CR>
+imap <F2> <Esc>:call SwitchBuffer(1)<CR>
 nmap <F3> :call SwitchBuffer(2)<CR>
+imap <F3> <Esc>:call SwitchBuffer(2)<CR>
 nmap <F4> :call SwitchBuffer(3)<CR>
+imap <F4> <Esc>:call SwitchBuffer(3)<CR>
 " Toggle nerd tree
 nmap <F5> :NERDTreeToggle<CR>
 " Locate current file in nerdtree
