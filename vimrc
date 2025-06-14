@@ -41,7 +41,7 @@ else
   Plug 'Yggdroot/indentLine'
 endif
 
-" Move text
+" Move text with Ctrl + Up/Down
 Plug 'matze/vim-move'
 let g:move_key_modifier = 'C'
 let g:move_key_modifier_visualmode = 'C'
@@ -66,6 +66,8 @@ if has('nvim')
   Plug 'folke/flash.nvim'
   " Auto fix typos
   Plug 'ck-zhang/mistake.nvim'
+  " Diff view
+  Plug 'sindrets/diffview.nvim'
 endif
 
 " Provide nerd font icons for other plugins
@@ -232,6 +234,11 @@ nmap <leader>E :e ~/.config/nvim/init.vim<CR>
 nmap <leader>r :source %<CR>
 " Create an empty buffer
 nmap <leader>n :enew<CR>
+if has('nvim')
+  " Open/close diff view
+  nmap <leader>d :DiffviewOpen<CR>
+  nmap <leader>D :DiffviewClose<CR>
+endif
 
 function! ConfirmCloseAllBuffers()
   let answer = input("Close all buffers? (y/N): ")
