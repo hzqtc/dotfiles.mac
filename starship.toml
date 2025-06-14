@@ -1,4 +1,4 @@
-format = "$os$username$directory$git_branch$git_commit$git_state$git_metrics$git_status$sudo$cmd_duration$line_break$jobs$shell$shlvl$character"
+format = "$os$username$directory$git_branch$git_commit$git_state$git_metrics$git_status$python$sudo$cmd_duration$line_break$jobs$shell$shlvl$character"
 
 [character]
 success_symbol = '[❯](bold green)'
@@ -20,6 +20,11 @@ disabled = false
 
 [os.symbols]
 Macos = "󰀵 "
+
+[python]
+format = '[${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
+version_format = 'v${major}.${minor}'
+symbol = " "
 
 [sudo]
 disabled = false
