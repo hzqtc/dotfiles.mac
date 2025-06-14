@@ -68,6 +68,9 @@ if has('nvim')
   Plug 'ck-zhang/mistake.nvim'
 endif
 
+" Provide nerd font icons for other plugins
+Plug 'ryanoasis/vim-devicons'
+
 " All of your Plugins must be added before the following line
 call plug#end()
 
@@ -136,42 +139,6 @@ set foldlevelstart=99
 autocmd WinEnter,BufWinEnter * if &diff | setlocal foldmethod=diff | else | setlocal foldmethod=indent | endif
 autocmd OptionSet diff if &diff | setlocal foldmethod=diff | else | setlocal foldmethod=indent | endif
 
-let g:filetype_icons = {
-      \ 'python':     '',
-      \ 'javascript': '',
-      \ 'typescript': '',
-      \ 'html':       '',
-      \ 'css':        '',
-      \ 'scss':       '',
-      \ 'json':       '',
-      \ 'yaml':       '',
-      \ 'toml':       '',
-      \ 'markdown':   '',
-      \ 'lua':        '',
-      \ 'vim':        '',
-      \ 'sh':         '',
-      \ 'zsh':        '',
-      \ 'bash':       '',
-      \ 'make':       '',
-      \ 'c':          '',
-      \ 'cpp':        '',
-      \ 'java':       '',
-      \ 'go':         '',
-      \ 'rust':       '',
-      \ 'php':        '',
-      \ 'ruby':       '',
-      \ 'perl':       '',
-      \ 'r':          '󰟔',
-      \ 'dockerfile': '',
-      \ 'gitcommit':  '',
-      \ 'gitconfig':  '',
-      \ 'text':       '',
-      \ 'conf':       '',
-      \ 'ini':        '',
-      \ 'sql':        '',
-      \ 'default':    '',
-      \ }
-
 " Buffers list with the current buffer name in []
 function! AirlineBufferList()
   let buffers = filter(range(1, bufnr('$')), 'buflisted(v:val)')
@@ -180,8 +147,9 @@ function! AirlineBufferList()
   let index = 1
   for b in buffers
     let path = bufname(b)
-    let ft = getbufvar(b, '&filetype')
-    let icon = get(g:filetype_icons, ft, g:filetype_icons['default'])
+    " let ft = getbufvar(b, '&filetype')
+    " let icon = get(g:filetype_icons, ft, g:filetype_icons['default'])
+    let icon = WebDevIconsGetFileTypeSymbol(path)
     if path ==# ''
       let name = '<New>'
     else
@@ -201,22 +169,15 @@ function! AirlineBufferList()
     endif
 
     if b == bufnr('')
-      call add(names, printf('[%d %s %s]', index, icon, name))
+      call add(names, printf('[%d %s%s]', index, icon, name))
     else
-      call add(names, printf('%d %s %s', index, icon, name))
+      call add(names, printf('%d %s%s', index, icon, name))
     endif
     let index += 1
   endfor
   return join(names, ' | ')
 endfunction
 let g:airline_section_c = '%{AirlineBufferList()}'
-
-function! AirlineFiletype()
-  let ft = &filetype
-  return get(g:filetype_icons, ft, g:filetype_icons['default']) . ' ' . ft
-endfunction
-
-let g:airline_section_x = '%{AirlineFiletype()}'
 
 " Current working directory
 function! AirlineCwd()
@@ -225,19 +186,11 @@ endfunction
 let g:airline_section_y = '%{AirlineCwd()}'
 
 function! AirlineSectionZ()
-  let os_icon = ''
-  if has('mac') || has('macunix') || has('osx')
-    let os_icon = "󰀵"
-  elseif has('unix') && !has('macunix')
-    let os_icon = "󰌽"
-  elseif has('win32') || has('win64')
-    let os_icon = "󰍲"
-  endif
   let lnum = line('.')
   let colnum = col('.')
   let total = line('$')
   let scroll = float2nr(100.0 * lnum / total)
-  return os_icon . ' ' . lnum . ':' . colnum . ' ' . scroll . '% '
+  return lnum . ':' . colnum . ' ' . scroll . '% '
 endfunction
 let g:airline_section_z = '%{AirlineSectionZ()}'
 
