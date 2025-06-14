@@ -9,10 +9,12 @@
 [difftool]
   prompt = false
 [difftool "difftastic"]
-  cmd = difft --display side-by-side-show-both "$MERGED" "$LOCAL" "abcdef1" "100644" "$REMOTE" "abcdef2" "100644"
+  cmd = difft --display side-by-side-show-both --color always "$MERGED" "$LOCAL" "abcdef1" "100644" "$REMOTE" "abcdef2" "100644"
 [alias]
+  is = istage
   aa = add .
   d = difftool
+  dp = -c pager.difftool=true difftool
   st = status
   c = commit
   p = push
@@ -24,4 +26,5 @@
   conflictStyle = zdiff3
 [pager]
   log = false
-  difftool = true
+  diff = false
+  difftool = false
