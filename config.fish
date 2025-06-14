@@ -43,6 +43,11 @@ function view
   end
 end
 
+function nvo
+  nvr --remote $argv
+  open -a Neovide
+end
+
 starship init fish | source
 
 set -gx LEDGER_FILE /Users/hzqtc/Documents/hledger/hledger.journal

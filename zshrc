@@ -57,6 +57,11 @@ function view() {
   esac
 }
 
+function nvo() {
+  nvr --remote "$@"
+  open -a Neovide
+}
+
 eval "$(starship init zsh)"
 
 export LEDGER_FILE="/Users/hzqtc/Documents/hledger/hledger.journal"
