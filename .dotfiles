@@ -5,7 +5,9 @@
 ~/.config/fish/fish_plugins
 ~/.config/lsd
 ~/.config/nvim
+~/.config/prompts
 ~/.config/starship.toml
+~/.git_hooks
 ~/.gitconfig
 ~/.gitignore
 ~/.local/bin/sysinfo.sh

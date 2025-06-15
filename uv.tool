@@ -1,3 +1,5 @@
+llm v0.26
+- llm
 neovim-remote v2.5.1
 - nvr
 posting v2.7.0
