@@ -221,7 +221,7 @@ nmap <leader>x :bw<CR>
 " Close all buffers with confirmation
 nmap <leader>X :call ConfirmCloseAllBuffers()<CR>
 " Toggle search highlights
-nmap <leader>h :set hlsearch!<CR>
+nmap <leader>l :set hlsearch!<CR>
 " Open Startify
 nmap <leader>s :Startify<CR>
 " Toggle background between light and dark
@@ -238,6 +238,10 @@ if has('nvim')
   " Open/close diff view
   nmap <leader>d :DiffviewOpen<CR>
   nmap <leader>D :DiffviewClose<CR>
+  " History of the current file
+  nmap <leader>h :DiffviewFileHistory %<CR>
+  " History of the current repo
+  nmap <leader>H :DiffviewFileHistory<CR>
 endif
 
 function! ConfirmCloseAllBuffers()
