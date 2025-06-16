@@ -139,10 +139,11 @@ autocmd OptionSet diff if &diff | setlocal foldmethod=diff | else | setlocal fol
 " ======================
 " Airline config section
 " ======================
-" Disable dev icons in airline because it cause issues
+" Disable dev icons in airline because I want to customize where icons show up
 let g:webdevicons_enable_airline_statusline = 0
-" Don't show tags in airline
+" Disable some plugins to save space
 let g:airline#extensions#tagbar#enabled = 0
+let g:airline#extensions#searchcount#enabled = 0
 
 " Buffers list with the current buffer name in []
 function! AirlineSectionC()
