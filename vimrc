@@ -41,11 +41,6 @@ else
   Plug 'Yggdroot/indentLine'
 endif
 
-" Move text with Ctrl + Up/Down
-Plug 'matze/vim-move'
-let g:move_key_modifier = 'C'
-let g:move_key_modifier_visualmode = 'C'
-
 " Fancy start screen
 Plug 'mhinz/vim-startify'
 
@@ -141,16 +136,22 @@ set foldlevelstart=99
 autocmd WinEnter,BufWinEnter * if &diff | setlocal foldmethod=diff | else | setlocal foldmethod=indent | endif
 autocmd OptionSet diff if &diff | setlocal foldmethod=diff | else | setlocal foldmethod=indent | endif
 
+" ======================
+" Airline config section
+" ======================
+" Disable dev icons in airline because it cause issues
+let g:webdevicons_enable_airline_statusline = 0
+" Don't show tags in airline
+let g:airline#extensions#tagbar#enabled = 0
+
 " Buffers list with the current buffer name in []
-function! AirlineBufferList()
+function! AirlineSectionC()
   let buffers = filter(range(1, bufnr('$')), 'buflisted(v:val)')
   let names = []
   " Show buffers' indexes rather than buffer numbers
   let index = 1
   for b in buffers
     let path = bufname(b)
-    " let ft = getbufvar(b, '&filetype')
-    " let icon = get(g:filetype_icons, ft, g:filetype_icons['default'])
     let icon = WebDevIconsGetFileTypeSymbol(path)
     if path ==# ''
       let name = '<New>'
@@ -179,13 +180,27 @@ function! AirlineBufferList()
   endfor
   return join(names, ' | ')
 endfunction
-let g:airline_section_c = '%{AirlineBufferList()}'
+let g:airline_section_c = '%{AirlineSectionC()}'
 
-" Current working directory
-function! AirlineCwd()
-  return fnamemodify(getcwd(), ':~:.')
+function! AirlineSectionX()
+  let ft = &filetype
+  let path = expand('%:p')
+  return WebDevIconsGetFileTypeSymbol(path) . ' ' . ft
 endfunction
-let g:airline_section_y = '%{AirlineCwd()}'
+let g:airline_section_x = '%{AirlineSectionX()}'
+
+function! AirlineSectionY()
+  let os_icon = ''
+  if has('mac') || has('macunix') || has('osx')
+    let os_icon = "󰀵"
+  elseif has('unix') && !has('macunix')
+    let os_icon = "󰌽"
+  elseif has('win32') || has('win64')
+    let os_icon = "󰍲"
+  endif
+  return os_icon . ' ' . fnamemodify(getcwd(), ':~:.')
+endfunction
+let g:airline_section_y = '%{AirlineSectionY()}'
 
 function! AirlineSectionZ()
   let lnum = line('.')
@@ -213,6 +228,10 @@ function! SwitchBuffer(index)
     echohl None
   endif
 endfunction
+
+" ==========================
+" End Airline config section
+" ==========================
 
 " Y to copy to end of line
 nmap Y y$
