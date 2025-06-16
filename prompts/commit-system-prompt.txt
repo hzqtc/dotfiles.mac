@@ -1,6 +1,6 @@
 Generate a concise, one-line Git commit message summarizing the diff of staged files.
 Don't add tags or category (feat, fix, etc.) in the beginning of the message.
-Keep it professional and informative.
+Keep it professional and informative. Limit the sentence to 20 words.
 
 Think carefully before you write your commit message.
 
