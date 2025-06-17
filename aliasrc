@@ -7,7 +7,7 @@ alias lll='ll -A'
 alias lt='ll --tree'
 
 # Morden alternatives to trandition unix commands
-alias cat='bat'
+alias cat='bat -P'
 alias du='dust'
 alias df='duf'
 alias cp='fcp'
