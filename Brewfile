@@ -17,6 +17,8 @@ brew "bash"
 brew "bat"
 # Play, record, convert, and stream audio and video
 brew "ffmpeg"
+# Console Matrix
+brew "cmatrix"
 # Generates code snapshots in various formats
 brew "codesnap"
 # Modern diagram scripting language that turns text to diagrams
@@ -53,6 +55,8 @@ brew "gh"
 brew "gitui"
 # Render markdown on the CLI
 brew "glow"
+# Open source programming language to build simple/reliable/efficient software
+brew "go"
 # Command-line hex viewer
 brew "hexyl"
 # Easy plain text accounting with command-line, terminal and web UIs
@@ -129,7 +133,7 @@ brew "yt-dlp"
 brew "charmbracelet/tap/freeze"
 # A beautiful and simple terminal dashboard for hledger
 brew "siddhantac/puffin/puffin"
-# A simple TUI tool to make your brews bold.
+# A simple TUI tool to make your homebrew bold.
 brew "valkyrie00/bbrew/bbrew"
 # User-friendly GUI app for Homebrew
 cask "applite"
@@ -149,6 +153,8 @@ cask "maccy"
 cask "openscad"
 # Tool that provides consistent, highly configurable symbols for apps
 cask "sf-symbols"
+# GPU-accelerated cross-platform terminal emulator and multiplexer
+cask "wezterm"
 # REST, GraphQL and gRPC client
 cask "yaak"
 # Multiplayer code editor
