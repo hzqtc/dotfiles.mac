@@ -8,6 +8,7 @@
 ~/.config/nvim
 ~/.config/prompts
 ~/.config/starship.toml
+~/.config/wezterm
 ~/.git_hooks
 ~/.gitconfig
 ~/.gitignore
