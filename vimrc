@@ -15,11 +15,7 @@ Plug 'mhinz/vim-signify'
 
 " Color scheme
 Plug 'NLKNguyen/papercolor-theme'
-if has('nvim')
-  Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
-else
-  Plug 'catppuccin/vim', { 'as': 'catppuccin' }
-endif
+Plug 'catppuccin/vim', { 'as': 'catppuccin' }
 
 " File explorer
 Plug 'preservim/nerdtree'
@@ -335,10 +331,6 @@ else
   set termguicolors
 endif
 
-if has('nvim')
-  colorscheme catppuccin-mocha
-else
-  colorscheme catppuccin_mocha
-endif
+colorscheme catppuccin_mocha
 set background=dark
 

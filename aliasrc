@@ -11,7 +11,6 @@ alias lt='ll --tree'
 alias cat='bat -P'
 alias du='dust'
 alias df='duf'
-alias cp='fcp'
 alias jq='jaq'
 alias rm='rmtrash'
 
