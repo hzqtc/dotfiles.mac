@@ -13,8 +13,9 @@ Plug 'preservim/tagbar'
 " Show diff in the sign column
 Plug 'mhinz/vim-signify'
 
-" Papercolor color scheme
+" Color scheme
 Plug 'NLKNguyen/papercolor-theme'
+Plug 'catppuccin/vim', { 'as': 'catppuccin' }
 
 " File explorer
 Plug 'preservim/nerdtree'
@@ -107,7 +108,7 @@ set smartcase
 set incsearch
 set wrapscan
 set gdefault
-set completeopt+=noselect
+set completeopt=fuzzy,menu,popup
 set wildmenu
 set wildignore+=*/*.egg-info/**,*/.git/*,*/dist/**,*/__pycache__/**
 set novisualbell
@@ -316,6 +317,7 @@ autocmd BufRead,BufNewFile *.as set filetype=applescript
 if exists("g:neovide")
   set lines=42
   set columns=160
+  let g:neovide_opacity = 0.9
 elseif has("gui_running")
   set guioptions=egmic
   set lines=35
@@ -325,15 +327,10 @@ endif
 if has("gui_running") || exists("g:neovide")
   set showtabline=0
   set guifont=FiraCode\ Nerd\ Font:h13
-  " Light background before 8PM
-  if strftime("%H") < 20
-    set background=light
-  else
-    set background=dark
-  endif
 else
-  " Alwasy dark background in terminal
-  set background=dark
+  set termguicolors
 endif
-colorscheme PaperColor
+
+colorscheme catppuccin_mocha
+set background=dark
 

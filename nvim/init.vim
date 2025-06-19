@@ -30,9 +30,9 @@ EOF
 let g:neovide_input_use_logo = 1
 " Command+V to paste
 nmap <D-v> "+p
-imap <D-v> <Esc>"+pi
+imap <D-v> <Esc>"+pa
 cmap <D-v> <C-r>+
-tmap <D-v> <C-\><C-n>"+pi
+tmap <D-v> <C-\><C-n>"+pa
 " Command+C to copy selection
 nmap <D-c> "+yy
 vmap <D-c> "+y
