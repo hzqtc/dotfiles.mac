@@ -42,6 +42,6 @@ config.keys = {
 }
 
 -- Default program (auto attach to tmux)
-config.default_prog = { "/opt/homebrew/bin/fish", "-l", "-c", "tmux new -A -s default" }
+config.default_prog = { "/opt/homebrew/bin/tmux", "new", "-A", "-s", "default" }
 
 return config
