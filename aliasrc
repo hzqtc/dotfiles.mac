@@ -3,7 +3,8 @@ alias ls='lsd'
 alias l='ls'
 alias ll='ls -l'
 alias la='ls -A'
-alias lll='ll -A'
+alias lla='ll -A'
+alias lll='ll --total-size'
 alias lt='ll --tree'
 
 # Morden alternatives to trandition unix commands
