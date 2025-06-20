@@ -30,5 +30,4 @@ tx_bytes2=$(netstat -ib | awk 'NR>1 && $1 != "lo0" {tx[$1]+=$10} END {total=0; f
 rx_rate=$(( (rx_bytes2 - rx_bytes) / 1024 )) # in KB
 tx_rate=$(( (tx_bytes2 - tx_bytes) / 1024 )) # in KB
 
-echo "CPU: ${cpu_usage}% Mem: ${used_mem_gb}/${total_mem_gb}G Net: ${rx_rate}k↓/${tx_rate}k↑"
-
+echo " ${cpu_usage}%  ${used_mem_gb}/${total_mem_gb}G 󰌗 ${rx_rate}k↓/${tx_rate}k↑"
