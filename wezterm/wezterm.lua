@@ -9,20 +9,23 @@ end
 
 -- Appearance
 config.color_scheme = "Catppuccin Mocha"
-config.font = wezterm.font("FiraCode Nerd Font Mono", { weight = "Regular" })
+config.font = wezterm.font("FiraCode Nerd Font")
 config.font_size = 13
-config.line_height = 1.2
-config.enable_tab_bar = false -- let tmux handle sessions
-config.window_padding = {
-  left = 0, right = 0, top = 0, bottom = 0
-}
-config.window_close_confirmation = "NeverPrompt"
+config.allow_square_glyphs_to_overflow_width = "Always"
+config.line_height = 1.1
+
+-- Window
+config.enable_tab_bar = false
+config.window_padding = { left = 8, right = 8, top = 0, bottom = 0 }
 config.window_background_opacity = 0.9
 config.macos_window_background_blur = 20
+config.initial_rows = 35
+config.initial_cols = 160
+
+-- Behavior
+config.window_close_confirmation = "NeverPrompt"
 config.hide_mouse_cursor_when_typing = true
 config.native_macos_fullscreen_mode = true
-config.initial_rows = 38
-config.initial_cols = 169
 
 -- Better font rendering for Retina
 config.freetype_load_target = "Light"
@@ -34,11 +37,16 @@ config.max_fps = 60
 config.front_end = "WebGpu"
 config.enable_scroll_bar = false
 
--- macOS Friendly Keybindings
+-- Keybindings
 config.keys = {
   { key = "c", mods = "CMD", action = wezterm.action.CopyTo("Clipboard") },
   { key = "v", mods = "CMD", action = wezterm.action.PasteFrom("Clipboard") },
   { key = "q", mods = "CTRL|SHIFT", action = wezterm.action.QuickSelect },
+  { key = ",", mods = "CMD", action = wezterm.action.SendString("nvo " .. wezterm.config_file .. "\n") },
+  { key = "0", mods = "CMD", action = wezterm.action.ResetFontSize },
+  { key = "-", mods = "CMD", action = wezterm.action.DecreaseFontSize },
+  { key = "=", mods = "CMD", action = wezterm.action.IncreaseFontSize },
+  { key = "F", mods = "CMD", action = wezterm.action.Search { CaseInSensitiveString = "" } }
 }
 
 -- Default program (auto attach to tmux)
