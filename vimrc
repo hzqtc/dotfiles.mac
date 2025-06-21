@@ -60,8 +60,6 @@ Plug 'tpope/vim-obsession'
 if has('nvim')
   " Faster search
   Plug 'folke/flash.nvim'
-  " Auto fix typos
-  Plug 'ck-zhang/mistake.nvim'
   " Diff view
   Plug 'sindrets/diffview.nvim'
 endif
@@ -80,6 +78,8 @@ autocmd FileType * setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab
 
 " Quicker updates for 'vim-signify'
 set updatetime=100
+" Longer timeout for long commands in normal mode
+set timeoutlen=2000
 set autoindent
 set smartindent
 set tabstop=2
@@ -93,6 +93,7 @@ set nofoldenable
 set splitright
 set splitbelow
 set cursorline
+set relativenumber
 set mousehide
 set mouse=a
 if !has('nvim')
@@ -315,13 +316,9 @@ nmap <silent> <c-l> :wincmd l<CR>
 autocmd BufRead,BufNewFile *.as set filetype=applescript
 
 if exists("g:neovide")
-  set lines=42
-  set columns=160
   let g:neovide_opacity = 0.9
 elseif has("gui_running")
   set guioptions=egmic
-  set lines=35
-  set columns=159
 endif
 
 if has("gui_running") || exists("g:neovide")

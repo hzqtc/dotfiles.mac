@@ -19,8 +19,6 @@ config.enable_tab_bar = false
 config.window_padding = { left = 8, right = 8, top = 0, bottom = 0 }
 config.window_background_opacity = 0.9
 config.macos_window_background_blur = 20
-config.initial_rows = 35
-config.initial_cols = 160
 
 -- Behavior
 config.window_close_confirmation = "NeverPrompt"

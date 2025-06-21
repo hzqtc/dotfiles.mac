@@ -15,6 +15,7 @@
   aa = add .
   d = difftool
   dp = -c pager.difftool=true difftool
+  dd = diff --no-ext-diff
   st = status
   c = commit
   p = push
@@ -22,7 +23,7 @@
   l = log -n 15 --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
 [core]
   excludesfile = /Users/hzqtc/.gitignore
-	hooksPath = /Users/hzqtc/.git_hooks
+  hooksPath = /Users/hzqtc/.git_hooks
 [merge]
   conflictStyle = zdiff3
 [pager]
