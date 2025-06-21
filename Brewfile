@@ -91,8 +91,6 @@ brew "parallel"
 brew "pget"
 # Modern replacement for ps written in Rust
 brew "procs"
-# File browser
-brew "ranger"
 # Unit conversion tool and library written in rust
 brew "rink"
 # Search tool like grep and The Silver Searcher
@@ -103,6 +101,8 @@ brew "rmtrash"
 brew "shellcheck"
 # Cross-shell prompt for astronauts
 brew "starship"
+# Modern and pretty fancy file manager for the terminal
+brew "superfile"
 # TUI to view and query tabular files (CSV,TSV, Parquet, etc.)
 brew "tabiew"
 # Send macOS User Notifications from the command-line
@@ -135,6 +135,8 @@ brew "charmbracelet/tap/freeze"
 brew "siddhantac/puffin/puffin"
 # A simple TUI tool to make your homebrew bold.
 brew "valkyrie00/bbrew/bbrew"
+# Application uninstaller
+cask "appcleaner"
 # User-friendly GUI app for Homebrew
 cask "applite"
 # OpenAI's official ChatGPT desktop app

@@ -1,5 +1,8 @@
 llm v0.26
 - llm
+mbake v1.1.0
+- bake
+- mbake
 neovim-remote v2.5.1
 - nvr
 posting v2.7.0
