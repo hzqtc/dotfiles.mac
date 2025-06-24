@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+# Get system uptime in days
+uptime_days=$(uptime | grep -o '[0-9]\+ day[s]*' | sed 's/ //')
+uptime_days=${uptime_days:-"1 day"}
+
 # Get CPU usage
 cpu_usage=$(top -l 1 -n 0 | awk '/CPU usage/ {
   sub(/%/, "", $3); print $3
@@ -30,4 +34,5 @@ tx_bytes2=$(netstat -ib | awk 'NR>1 && $1 != "lo0" {tx[$1]+=$10} END {total=0; f
 rx_rate=$(( (rx_bytes2 - rx_bytes) / 1024 )) # in KB
 tx_rate=$(( (tx_bytes2 - tx_bytes) / 1024 )) # in KB
 
-echo " ${cpu_usage}%  ${used_mem_gb}/${total_mem_gb}G 󰌗 ${rx_rate}k↓/${tx_rate}k↑"
+echo "󰥔 ${uptime_days}  ${cpu_usage}%  ${used_mem_gb}/${total_mem_gb}G 󰌗 ${rx_rate}k↓/${tx_rate}k↑"
+
