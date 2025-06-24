@@ -113,8 +113,6 @@ brew "tlrc"
 brew "tmux"
 # Maintained ctags implementation
 brew "universal-ctags"
-# Tool for writing command-line pipes with instant live preview
-brew "up"
 # Extremely fast Python package installer and resolver, written in Rust
 brew "uv"
 # Your CLI home video recorder
@@ -129,6 +127,8 @@ brew "xan"
 brew "xh"
 # Feature-rich command-line audio/video downloader
 brew "yt-dlp"
+# Shell extension to navigate your filesystem faster
+brew "zoxide"
 # Generate images of code and terminal output.
 brew "charmbracelet/tap/freeze"
 # A beautiful and simple terminal dashboard for hledger

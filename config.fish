@@ -48,6 +48,7 @@ function nvo
   open -a Neovide
 end
 
+zoxide init fish | source
 starship init fish | source
 
 set -gx LEDGER_FILE /Users/hzqtc/Documents/hledger/hledger.journal

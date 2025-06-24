@@ -62,6 +62,7 @@ function nvo() {
   open -a Neovide
 }
 
+eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
 
 export LEDGER_FILE="/Users/hzqtc/Documents/hledger/hledger.journal"
