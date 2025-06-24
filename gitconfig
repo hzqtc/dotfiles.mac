@@ -13,9 +13,14 @@
 [alias]
   is = istage
   aa = add .
+  ; Diff with difft
   d = difftool
+  ; Diff with difft using pager
   dp = -c pager.difftool=true difftool
+  ; Diff with built-in diff
   dd = diff --no-ext-diff
+  ; Diff using nvim -d
+  dv = difftool --tool=nvimdiff --no-prompt
   st = status
   c = commit
   p = push
