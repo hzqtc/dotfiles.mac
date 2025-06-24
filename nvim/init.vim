@@ -23,6 +23,13 @@ require("flash").setup({
   },
 })
 require('mini.indentscope').setup()
+require("oil").setup({
+  buf_options = {
+    buflisted = true,
+    -- bufhidden = "hide",
+  },
+  delete_to_trash = true,
+})
 EOF
 
 " Enable logo (Command/Windows) key support in Neovide

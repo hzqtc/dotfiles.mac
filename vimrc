@@ -62,6 +62,8 @@ if has('nvim')
   Plug 'folke/flash.nvim'
   " Diff view
   Plug 'sindrets/diffview.nvim'
+  " Directory editor
+  Plug 'stevearc/oil.nvim'
 endif
 
 " Provide nerd font icons for other plugins
@@ -70,11 +72,11 @@ Plug 'ryanoasis/vim-devicons'
 " All of your Plugins must be added before the following line
 call plug#end()
 
-filetype plugin indent on
+filetype plugin on
 syntax enable
 
-" Force 2 spaces indent on all file types
-autocmd FileType * setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab
+" File types that forces/prefers tabs
+autocmd FileType make,go setlocal noexpandtab
 
 " Quicker updates for 'vim-signify'
 set updatetime=100
@@ -154,20 +156,10 @@ function! AirlineSectionC()
   " Show buffers' indexes rather than buffer numbers
   let index = 1
   for b in buffers
-    let path = bufname(b)
-    let icon = WebDevIconsGetFileTypeSymbol(path)
-    if path ==# ''
+    let name = fnamemodify(bufname(b), ':t')
+    let icon = WebDevIconsGetFileTypeSymbol(name)
+    if name ==# ''
       let name = '<New>'
-    else
-      let parts = split(fnamemodify(path, ':~:.'), '/')
-      if len(parts) > 1
-        " Shorten all but the last part (the filename)
-        let last = remove(parts, -1)
-        let short_parts = map(parts, {_, val -> (val[0] ==# '.' ? val[:1] : val[0])})
-        let name = join(short_parts, '/') . '/' . last
-      else
-        let name = parts[0]
-      endif
     endif
 
     if getbufvar(b, '&modified')
@@ -210,7 +202,7 @@ function! AirlineSectionZ()
   let colnum = col('.')
   let total = line('$')
   let scroll = float2nr(100.0 * lnum / total)
-  return lnum . ':' . colnum . ' ' . scroll . '% '
+  return lnum . ':' . colnum . ' ' . scroll . '%'
 endfunction
 let g:airline_section_z = '%{AirlineSectionZ()}'
 
@@ -248,6 +240,8 @@ nmap <leader>l :set hlsearch!<CR>
 nmap <leader>s :Startify<CR>
 " Toggle background between light and dark
 nmap <leader>b :call ToggleBackground()<CR>
+" Remove trailing spaces
+nmap <leader>f :%s/\s\+$//g<CR>
 " Edit .vimrc
 nmap <leader>e :e ~/.vimrc<CR>
 " Edit init.vim
