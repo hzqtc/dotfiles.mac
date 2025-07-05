@@ -17,6 +17,8 @@ brew "bash"
 brew "bat"
 # Play, record, convert, and stream audio and video
 brew "ffmpeg"
+# Hacker News in your terminal
+brew "circumflex"
 # Console Matrix
 brew "cmatrix"
 # Generates code snapshots in various formats
@@ -49,6 +51,10 @@ brew "fcp"
 brew "fd"
 # User-friendly command-line shell for UNIX-like operating systems
 brew "fish"
+# Command-line fuzzy finder written in Go
+brew "fzf"
+# Interact with Google Gemini AI models from the command-line
+brew "gemini-cli"
 # GitHub command-line tool
 brew "gh"
 # Blazing fast terminal-ui for git written in rust
@@ -133,8 +139,6 @@ brew "zoxide"
 brew "charmbracelet/tap/freeze"
 # A beautiful and simple terminal dashboard for hledger
 brew "siddhantac/puffin/puffin"
-# A simple TUI tool to make your homebrew bold.
-brew "valkyrie00/bbrew/bbrew"
 # Application uninstaller
 cask "appcleaner"
 # User-friendly GUI app for Homebrew
