@@ -62,12 +62,13 @@ function nvo() {
   open -a Neovide
 }
 
-copylast() {
-  print -r -- "$history[$HISTCMD-1]" | pbcopy
+function copylast() {
+  fc -ln -1 | pbcopy
 }
 
 eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
+source <(fzf --zsh)
 
 export LEDGER_FILE="/Users/hzqtc/Documents/hledger/hledger.journal"
 export PAGER=moar

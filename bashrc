@@ -46,7 +46,18 @@ view() {
   esac
 }
 
+nvo() {
+  nvr --remote "$@"
+  open -a Neovide
+}
+
+copylast() {
+  history | tail -n 2 | head -n 1 | sed 's/^[ ]*[0-9]*[ ]*//' | pbcopy
+}
+
+eval "$(zoxide init bash)"
 eval "$(starship init bash)"
+eval "$(fzf --bash)"
 
 export LEDGER_FILE="/Users/hzqtc/Documents/hledger/hledger.journal"
 export PAGER=moar

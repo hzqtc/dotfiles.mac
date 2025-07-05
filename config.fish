@@ -54,6 +54,7 @@ end
 
 zoxide init fish | source
 starship init fish | source
+fzf --fish | source
 
 set -gx LEDGER_FILE /Users/hzqtc/Documents/hledger/hledger.journal
 set -gx PAGER moar
