@@ -6,22 +6,6 @@ source ~/.vimrc
 let mapleader = "\\"
 
 lua << EOF
-require("flash").setup({
-  label = {
-    rainbow = {
-      enabled = true,
-    },
-    uppercase = false,
-  },
-  modes = {
-    search = {
-      enabled = true,
-    },
-    char = {
-      enabled = false,
-    }
-  },
-})
 require('mini.indentscope').setup()
 require("oil").setup({
   buf_options = {

@@ -58,8 +58,6 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-obsession'
 
 if has('nvim')
-  " Faster search
-  Plug 'folke/flash.nvim'
   " Diff view
   Plug 'sindrets/diffview.nvim'
   " Directory editor
@@ -109,6 +107,7 @@ set hidden
 set ignorecase
 set smartcase
 set incsearch
+set hlsearch
 set wrapscan
 set gdefault
 set completeopt=fuzzy,menu,popup
@@ -157,11 +156,15 @@ function! AirlineSectionC()
   let index = 1
   for b in buffers
     let name = fnamemodify(bufname(b), ':t')
+    let path = fnamemodify(bufname(b), ':p')
     let icon = WebDevIconsGetFileTypeSymbol(name)
     if name ==# ''
       let name = '<New>'
     endif
 
+    if getbufvar(b, '&readonly')
+      let name .= ' '
+    endif
     if getbufvar(b, '&modified')
       let name .= ' ●'
     endif
@@ -180,7 +183,7 @@ let g:airline_section_c = '%{AirlineSectionC()}'
 function! AirlineSectionX()
   let ft = &filetype
   let path = expand('%:p')
-  return WebDevIconsGetFileTypeSymbol(path) . ' ' . ft
+  return WebDevIconsGetFileTypeSymbol(path) . ft
 endfunction
 let g:airline_section_x = '%{AirlineSectionX()}'
 
@@ -230,12 +233,14 @@ endfunction
 
 " Y to copy to end of line
 nmap Y y$
+" // to search selected text
+vmap // y/<C-R>"<CR>N
+" <ESC> in normal mode clears highlights
+nmap <Esc> :nohl<CR>
 " Close current buffer
 nmap <leader>x :bw<CR>
 " Close all buffers with confirmation
 nmap <leader>X :call ConfirmCloseAllBuffers()<CR>
-" Toggle search highlights
-nmap <leader>l :set hlsearch!<CR>
 " Open Startify
 nmap <leader>s :Startify<CR>
 " Toggle background between light and dark
