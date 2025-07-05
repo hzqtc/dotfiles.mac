@@ -62,6 +62,10 @@ function nvo() {
   open -a Neovide
 }
 
+copylast() {
+  print -r -- "$history[$HISTCMD-1]" | pbcopy
+}
+
 eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
 

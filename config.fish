@@ -48,6 +48,10 @@ function nvo
   open -a Neovide
 end
 
+function copylast
+    history --max=1 | pbcopy
+end
+
 zoxide init fish | source
 starship init fish | source
 
