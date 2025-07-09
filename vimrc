@@ -1,6 +1,7 @@
 set nocompatible
 filetype off
 
+" Using https://github.com/junegunn/vim-plug
 call plug#begin()
 
 " Status bar
@@ -19,9 +20,6 @@ Plug 'catppuccin/vim', { 'as': 'catppuccin' }
 
 " File explorer
 Plug 'preservim/nerdtree'
-
-" Auto pairs
-Plug 'LunarWatcher/auto-pairs'
 
 " D2 syntax highlight
 Plug 'terrastruct/d2-vim'
@@ -125,6 +123,7 @@ set autochdir
 set noautoread
 set formatoptions=tcroqlmM
 set textwidth=150
+set virtualedit=block
 
 " Remember the following view options and restore automatically
 set viewoptions=folds,cursor,curdir

@@ -19,7 +19,7 @@ alias tw='tw --theme catppuccin'
 alias ai='aichat'
 alias hcn='clx -n -c 140' # hacker news TUI
 
-alias neovide='neovide -- --listen /tmp/nvimsocket &'
+alias neovide='neovide -- --listen /tmp/nvimsocket'
 alias dlm='yt-dlp --extract-audio --add-metadata --embed-thumbnail --audio-quality 0 --output "~/Music/mpd/%(title)s.%(ext)s"'
 
 # vim: filetype=sh

@@ -58,6 +58,7 @@ copylast() {
 eval "$(zoxide init bash)"
 eval "$(starship init bash)"
 eval "$(fzf --bash)"
+eval "$(nf-list --init bash)"
 
 export LEDGER_FILE="/Users/hzqtc/Documents/hledger/hledger.journal"
 export PAGER=moar

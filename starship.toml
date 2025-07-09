@@ -42,8 +42,8 @@ disabled = false
 format = '[$symbol]($style)'
 repeat = true
 symbol = '❯'
-# Hide first 2 level of nested shell, since tmux adds one level
-repeat_offset = 2
+# Show addition shell symbol for nested shells
+repeat_offset = 1
 threshold = 0
 
 [username]

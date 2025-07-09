@@ -38,3 +38,4 @@ nmap <D-a> ggVG
 imap <D-a> <Esc>ggVG
 vmap <D-a> <Esc>ggVG
 
+call serverstart('/tmp/nvimsocket')

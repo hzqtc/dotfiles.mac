@@ -103,6 +103,8 @@ brew "rink"
 brew "ripgrep"
 # Move files and directories to the trash
 brew "rmtrash"
+# Safe, concurrent, practical language
+brew "rust"
 # Static analysis and lint tool, for (ba)sh scripts
 brew "shellcheck"
 # Cross-shell prompt for astronauts
@@ -117,6 +119,8 @@ brew "terminal-notifier"
 brew "tlrc"
 # Terminal multiplexer
 brew "tmux"
+# Unicode database query tool for the command-line
+brew "uni"
 # Maintained ctags implementation
 brew "universal-ctags"
 # Extremely fast Python package installer and resolver, written in Rust
@@ -157,6 +161,8 @@ cask "iina"
 cask "maccy"
 # Programmable solid 3D CAD modeller
 cask "openscad"
+# Utility to uninstall apps and remove leftover files from old/uninstalled apps
+cask "pearcleaner"
 # Tool that provides consistent, highly configurable symbols for apps
 cask "sf-symbols"
 # GPU-accelerated cross-platform terminal emulator and multiplexer

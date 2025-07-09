@@ -69,6 +69,7 @@ function copylast() {
 eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
 source <(fzf --zsh)
+source <(nf-list --init zsh)
 
 export LEDGER_FILE="/Users/hzqtc/Documents/hledger/hledger.journal"
 export PAGER=moar
