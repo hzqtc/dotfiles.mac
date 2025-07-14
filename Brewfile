@@ -1,4 +1,5 @@
 tap "charmbracelet/tap"
+tap "pamburus/tap"
 tap "siddhantac/puffin"
 tap "valkyrie00/bbrew"
 # All-in-one AI-Powered CLI Chat & Copilot
@@ -49,6 +50,8 @@ brew "fastmod"
 brew "fcp"
 # Simple, fast and user-friendly alternative to find
 brew "fd"
+# Banner-like program prints strings as ASCII art
+brew "figlet"
 # User-friendly command-line shell for UNIX-like operating systems
 brew "fish"
 # Command-line fuzzy finder written in Go
@@ -63,6 +66,8 @@ brew "gitui"
 brew "glow"
 # Open source programming language to build simple/reliable/efficient software
 brew "go"
+# Go formatter that additionally inserts import statements
+brew "goimports"
 # Command-line hex viewer
 brew "hexyl"
 # Easy plain text accounting with command-line, terminal and web UIs
@@ -103,8 +108,6 @@ brew "rink"
 brew "ripgrep"
 # Move files and directories to the trash
 brew "rmtrash"
-# Safe, concurrent, practical language
-brew "rust"
 # Static analysis and lint tool, for (ba)sh scripts
 brew "shellcheck"
 # Cross-shell prompt for astronauts
@@ -119,6 +122,8 @@ brew "terminal-notifier"
 brew "tlrc"
 # Terminal multiplexer
 brew "tmux"
+# Program that allows you to count code, quickly
+brew "tokei"
 # Unicode database query tool for the command-line
 brew "uni"
 # Maintained ctags implementation
@@ -141,6 +146,8 @@ brew "yt-dlp"
 brew "zoxide"
 # Generate images of code and terminal output.
 brew "charmbracelet/tap/freeze"
+# Terminal output SVG screenshot tool
+brew "pamburus/tap/termframe"
 # A beautiful and simple terminal dashboard for hledger
 brew "siddhantac/puffin/puffin"
 # Application uninstaller
@@ -159,6 +166,8 @@ cask "git-credential-manager"
 cask "iina"
 # Clipboard manager
 cask "maccy"
+# Finds large, unwanted files and deletes them
+cask "omnidisksweeper"
 # Programmable solid 3D CAD modeller
 cask "openscad"
 # Utility to uninstall apps and remove leftover files from old/uninstalled apps
@@ -166,7 +175,7 @@ cask "pearcleaner"
 # Tool that provides consistent, highly configurable symbols for apps
 cask "sf-symbols"
 # GPU-accelerated cross-platform terminal emulator and multiplexer
-cask "wezterm"
+cask "wezterm@nightly"
 # REST, GraphQL and gRPC client
 cask "yaak"
 # Multiplayer code editor
