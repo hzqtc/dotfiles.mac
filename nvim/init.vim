@@ -14,6 +14,14 @@ require("oil").setup({
   },
   delete_to_trash = true,
 })
+require("conform").setup({
+  formatters_by_ft = {
+    go = { "goimports", "gofmt" },
+  },
+  format_on_save = {
+    timeout_ms = 500,
+  },
+})
 EOF
 
 " Enable logo (Command/Windows) key support in Neovide
@@ -38,4 +46,10 @@ nmap <D-a> ggVG
 imap <D-a> <Esc>ggVG
 vmap <D-a> <Esc>ggVG
 
-call serverstart('/tmp/nvimsocket')
+if !filereadable('/tmp/nvimsocket')
+  call serverstart('/tmp/nvimsocket')
+endif
+
+" briefly highlight yanked text
+autocmd TextYankPost * silent! lua vim.highlight.on_yank()
+

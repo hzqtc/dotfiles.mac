@@ -60,6 +60,8 @@ if has('nvim')
   Plug 'sindrets/diffview.nvim'
   " Directory editor
   Plug 'stevearc/oil.nvim'
+  " Code formatter
+  Plug 'stevearc/conform.nvim'
 endif
 
 " Provide nerd font icons for other plugins
@@ -91,7 +93,6 @@ set nofoldenable
 set splitright
 set splitbelow
 set cursorline
-set relativenumber
 set mousehide
 set mouse=a
 if !has('nvim')
@@ -132,6 +133,9 @@ autocmd BufWinEnter * silent! loadview
 " Always set cursor to the first line first column when editing a git commit message
 autocmd FileType gitcommit call cursor(1, 1)
 
+" Removing trailing spaces on save
+autocmd BufWritePre * :%s/\s\+$//e
+
 " Don't autofold
 set foldlevelstart=99
 " Set foldmethod to 'diff' when in diff mode, 'indent' otherwise
@@ -163,9 +167,14 @@ function! AirlineSectionC()
 
     if getbufvar(b, '&readonly')
       let name .= ' '
-    endif
-    if getbufvar(b, '&modified')
+    elseif getbufvar(b, '&modified')
       let name .= ' ●'
+    else
+      " Check if there are hunks (git changes) in the buffer using vim-signify
+      let bsy = getbufvar(b, 'sy')
+      if !empty(bsy) && len(bsy.hunks) > 0
+        let name .= ' +'
+      endif
     endif
 
     if b == bufnr('')
