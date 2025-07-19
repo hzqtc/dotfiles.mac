@@ -20,10 +20,14 @@ brew "bat"
 brew "ffmpeg"
 # Hacker News in your terminal
 brew "circumflex"
+# Formatting tools for C, C++, Obj-C, Java, JavaScript, TypeScript
+brew "clang-format"
 # Console Matrix
 brew "cmatrix"
 # Generates code snapshots in various formats
 brew "codesnap"
+# Suite of command-line tools for converting to and working with CSV
+brew "csvkit"
 # Modern diagram scripting language that turns text to diagrams
 brew "d2"
 # Diff that understands syntax
@@ -68,6 +72,8 @@ brew "glow"
 brew "go"
 # Go formatter that additionally inserts import statements
 brew "goimports"
+# Tool to convert a Wallpaper's color scheme / palette
+brew "gowall"
 # Command-line hex viewer
 brew "hexyl"
 # Easy plain text accounting with command-line, terminal and web UIs
@@ -78,10 +84,10 @@ brew "htop"
 brew "jaq"
 # Command-line pager for JSON data
 brew "jless"
+# Access large language models from the command-line
+brew "llm"
 # Clone of ls with colorful output, file type icons, and more
 brew "lsd"
-# GUI for vim, made for macOS
-brew "macvim"
 # Utility for directing compilation
 brew "make"
 # Nice to use pager for humans
@@ -94,12 +100,18 @@ brew "mpd", restart_service: :changed
 brew "neovim"
 # No Nonsense Neovim Client in Rust
 brew "neovide"
+# Control nvim processes using `nvr` command-line tool
+brew "neovim-remote"
 # Command-line Git information tool
 brew "onefetch"
 # Shell command parallelization utility
 brew "parallel"
 # File download client
 brew "pget"
+# Modern API client that lives in your terminal
+brew "posting"
+# Code formatter for JavaScript, CSS, JSON, GraphQL, Markdown, YAML
+brew "prettier"
 # Modern replacement for ps written in Rust
 brew "procs"
 # Unit conversion tool and library written in rust
@@ -108,8 +120,12 @@ brew "rink"
 brew "ripgrep"
 # Move files and directories to the trash
 brew "rmtrash"
+# Extremely fast Python linter, written in Rust
+brew "ruff"
 # Static analysis and lint tool, for (ba)sh scripts
 brew "shellcheck"
+# Autoformat shell script source code
+brew "shfmt"
 # Cross-shell prompt for astronauts
 brew "starship"
 # Modern and pretty fancy file manager for the terminal
@@ -158,6 +174,8 @@ cask "applite"
 cask "chatgpt"
 # Photography workflow application and raw developer
 cask "darktable"
+# Waterfall-style image viewer
+cask "flowvision"
 cask "font-fira-code"
 cask "font-fira-code-nerd-font"
 # Cross-platform Git credential storage for multiple hosting providers
@@ -174,6 +192,8 @@ cask "openscad"
 cask "pearcleaner"
 # Tool that provides consistent, highly configurable symbols for apps
 cask "sf-symbols"
+# AI image upscaler
+cask "upscayl"
 # GPU-accelerated cross-platform terminal emulator and multiplexer
 cask "wezterm@nightly"
 # REST, GraphQL and gRPC client

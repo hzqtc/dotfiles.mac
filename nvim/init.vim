@@ -10,13 +10,17 @@ require('mini.indentscope').setup()
 require("oil").setup({
   buf_options = {
     buflisted = true,
-    -- bufhidden = "hide",
   },
   delete_to_trash = true,
 })
 require("conform").setup({
   formatters_by_ft = {
     go = { "goimports", "gofmt" },
+    json = { "prettier" },
+    markdown = { "prettier" },
+    sh = { "shfmt" },
+    objc = { "clang-format" },
+    python = { "ruff-format" },
   },
   format_on_save = {
     timeout_ms = 500,

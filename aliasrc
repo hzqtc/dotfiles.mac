@@ -17,6 +17,7 @@ alias sc='shellcheck -e SC2090,SC2086,SC2089,SC2155'
 alias tw='tw --theme catppuccin'
 alias ai='aichat'
 alias hcn='clx -n -c 140' # hacker news TUI
+alias taproom='taproom -t --hide-help --hide-columns "Tap"'
 
 alias dlm='yt-dlp --extract-audio --add-metadata --embed-thumbnail --audio-quality 0 --output "~/Music/mpd/%(title)s.%(ext)s"'
 
