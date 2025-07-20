@@ -102,6 +102,7 @@ set fileencodings=ucs-bom,utf-8,gb18030,gbk,gb2312,cp936
 set encoding=utf-8
 set nobackup
 set noswapfile
+set undofile
 set hidden
 set ignorecase
 set smartcase
@@ -109,7 +110,7 @@ set incsearch
 set hlsearch
 set wrapscan
 set gdefault
-set completeopt=fuzzy,menu,popup
+set completeopt=fuzzy,menu,popup,noselect
 set wildmenu
 set wildignore+=*/*.egg-info/**,*/.git/*,*/dist/**,*/__pycache__/**
 set novisualbell
@@ -263,6 +264,15 @@ nmap <leader>E :e ~/.config/nvim/init.vim<CR>
 nmap <leader>r :source %<CR>
 " Create an empty buffer
 nmap <leader>n :enew<CR>
+
+" Move lines
+nmap <silent> <M-S-Up> :move -2<CR>
+xmap <silent> <M-S-Up> :move -2<CR>
+nmap <silent> <M-S-Down> :move +1<CR>
+xmap <silent> <M-S-Down> :move +1<CR>
+imap <silent> <M-S-Up> <C-o>:move -2<CR>
+imap <silent> <M-S-Down> <C-o>:move +1<CR>
+
 if has('nvim')
   " Open/close diff view
   nmap <leader>d :DiffviewOpen<CR>

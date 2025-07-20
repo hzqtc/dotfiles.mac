@@ -6,6 +6,11 @@ source ~/.vimrc
 let mapleader = "\\"
 
 lua << EOF
+vim.g.have_nerd_font = true
+
+vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
+
+-- Plugin config
 require('mini.indentscope').setup()
 require("oil").setup({
   buf_options = {
@@ -26,6 +31,25 @@ require("conform").setup({
     timeout_ms = 500,
   },
 })
+
+-- LSP config
+vim.lsp.config['gopls'] = {
+  cmd = { 'gopls' },
+  filetypes = { 'go' },
+  root_markers = { 'go.mod', 'go.sum', '.git' },
+}
+vim.lsp.enable('gopls')
+
+vim.api.nvim_create_autocmd('LspAttach', {
+  callback = function(ev)
+    local client = vim.lsp.get_client_by_id(ev.data.client_id)
+    if client:supports_method('textDocument/completion') then
+      vim.lsp.completion.enable(true, client.id, ev.buf, { autotrigger = true })
+    end
+  end,
+})
+
+vim.diagnostic.config({ virtual_text = true })
 EOF
 
 " Enable logo (Command/Windows) key support in Neovide
