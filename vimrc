@@ -8,18 +8,12 @@ call plug#begin()
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
-" Code structure outline
-Plug 'preservim/tagbar'
-
 " Show diff in the sign column
 Plug 'mhinz/vim-signify'
 
 " Color scheme
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'catppuccin/vim', { 'as': 'catppuccin' }
-
-" File explorer
-Plug 'preservim/nerdtree'
 
 " D2 syntax highlight
 Plug 'terrastruct/d2-vim'
@@ -62,6 +56,13 @@ if has('nvim')
   Plug 'stevearc/oil.nvim'
   " Code formatter
   Plug 'stevearc/conform.nvim'
+  " Code outline
+  Plug 'stevearc/aerial.nvim'
+  " File explorer
+  Plug 'nvim-tree/nvim-tree.lua'
+  Plug 'nvim-tree/nvim-web-devicons'
+  " Auto complete
+  Plug 'saghen/blink.cmp'
 endif
 
 " Provide nerd font icons for other plugins
@@ -312,13 +313,13 @@ imap <F3> <Esc>:call SwitchBuffer(2)<CR>
 nmap <F4> :call SwitchBuffer(3)<CR>
 imap <F4> <Esc>:call SwitchBuffer(3)<CR>
 " Toggle nerd tree
-nmap <F5> :NERDTreeToggle<CR>
+nmap <F5> :NvimTreeToggle<CR>
 " Locate current file in nerdtree
-nmap <F6> :NERDTreeFind<CR>
+nmap <F6> :NvimTreeFindFile<CR>
 " Toggle Undotree
 nmap <F7> :UndotreeToggle<CR>
 " Toggle tag bar
-nmap <F8> :TagbarToggle<CR>
+nmap <F8> :AerialToggle<CR>
 " Navigate buffers
 nmap <F9> :bprevious<CR>
 nmap <F10> :bnext<CR>

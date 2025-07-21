@@ -6,7 +6,10 @@ source ~/.vimrc
 let mapleader = "\\"
 
 lua << EOF
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
 vim.g.have_nerd_font = true
+vim.o.winborder = 'rounded'
 
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 
@@ -30,6 +33,17 @@ require("conform").setup({
   format_on_save = {
     timeout_ms = 500,
   },
+})
+require("aerial").setup({
+  on_attach = function(bufnr)
+    -- Jump forwards/backwards with '{' and '}'
+    vim.keymap.set("n", "{", "<cmd>AerialPrev<CR>", { buffer = bufnr })
+    vim.keymap.set("n", "}", "<cmd>AerialNext<CR>", { buffer = bufnr })
+  end,
+})
+require("nvim-tree").setup()
+require("blink.cmp").setup({
+  fuzzy = { implementation = "prefer_rust" }
 })
 
 -- LSP config
