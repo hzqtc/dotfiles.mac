@@ -72,10 +72,14 @@ brew "glow"
 brew "go"
 # Go formatter that additionally inserts import statements
 brew "goimports"
+# Language server for the Go language
+brew "gopls"
 # Tool to convert a Wallpaper's color scheme / palette
 brew "gowall"
 # Command-line hex viewer
 brew "hexyl"
+# Fast and powerful log viewer and processor
+brew "hl"
 # Easy plain text accounting with command-line, terminal and web UIs
 brew "hledger"
 # Improved top (interactive process viewer)
@@ -84,6 +88,8 @@ brew "htop"
 brew "jaq"
 # Command-line pager for JSON data
 brew "jless"
+# Simple terminal UI for git commands
+brew "lazygit"
 # Access large language models from the command-line
 brew "llm"
 # Clone of ls with colorful output, file type icons, and more
@@ -174,6 +180,8 @@ cask "applite"
 cask "chatgpt"
 # Photography workflow application and raw developer
 cask "darktable"
+# Utility that prevents the system from going to sleep
+cask "domzilla-caffeine"
 # Waterfall-style image viewer
 cask "flowvision"
 cask "font-fira-code"
