@@ -43,7 +43,8 @@ require("aerial").setup({
 })
 require("nvim-tree").setup()
 require("blink.cmp").setup({
-  fuzzy = { implementation = "prefer_rust" }
+  keymap = { preset = "enter" },
+  fuzzy = { implementation = "lua" }
 })
 
 -- LSP config
