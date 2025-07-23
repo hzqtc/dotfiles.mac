@@ -1,17 +1,7 @@
-tap "charmbracelet/tap"
-tap "pamburus/tap"
-tap "siddhantac/puffin"
-tap "valkyrie00/bbrew"
 # All-in-one AI-Powered CLI Chat & Copilot
 brew "aichat"
 # Easily create and use cli based on bash script
 brew "argc"
-# Interpreted, interactive, object-oriented programming language
-brew "python@3.13"
-# Record and share terminal sessions
-brew "asciinema"
-# Terminal bandwidth utilization tool
-brew "bandwhich"
 # Bourne-Again SHell, a UNIX command interpreter
 brew "bash"
 # Clone of cat(1) with syntax highlighting and Git integration
@@ -24,8 +14,8 @@ brew "circumflex"
 brew "clang-format"
 # Console Matrix
 brew "cmatrix"
-# Generates code snapshots in various formats
-brew "codesnap"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.13"
 # Suite of command-line tools for converting to and working with CSV
 brew "csvkit"
 # Modern diagram scripting language that turns text to diagrams
@@ -162,16 +152,8 @@ brew "xh"
 brew "yt-dlp"
 # Shell extension to navigate your filesystem faster
 brew "zoxide"
-# Generate images of code and terminal output.
-brew "charmbracelet/tap/freeze"
-# Terminal output SVG screenshot tool
-brew "pamburus/tap/termframe"
-# A beautiful and simple terminal dashboard for hledger
-brew "siddhantac/puffin/puffin"
 # Application uninstaller
 cask "appcleaner"
-# User-friendly GUI app for Homebrew
-cask "applite"
 # OpenAI's official ChatGPT desktop app
 cask "chatgpt"
 # Photography workflow application and raw developer
@@ -186,8 +168,6 @@ cask "font-fira-code-nerd-font"
 cask "git-credential-manager"
 # Free and open-source media player
 cask "iina"
-# Clipboard manager
-cask "maccy"
 # Neovim Client
 cask "neovide-app"
 # Finds large, unwanted files and deletes them
@@ -204,5 +184,3 @@ cask "upscayl"
 cask "wezterm@nightly"
 # REST, GraphQL and gRPC client
 cask "yaak"
-# Multiplayer code editor
-cask "zed"
