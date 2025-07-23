@@ -84,10 +84,10 @@ brew "hl"
 brew "hledger"
 # Improved top (interactive process viewer)
 brew "htop"
-# JQ clone focussed on correctness, speed, and simplicity
-brew "jaq"
 # Command-line pager for JSON data
 brew "jless"
+# Lightweight and flexible command-line JSON processor
+brew "jq"
 # Simple terminal UI for git commands
 brew "lazygit"
 # Access large language models from the command-line
@@ -104,8 +104,6 @@ brew "mpc"
 brew "mpd", restart_service: :changed
 # Ambitious Vim-fork focused on extensibility and agility
 brew "neovim"
-# No Nonsense Neovim Client in Rust
-brew "neovide"
 # Control nvim processes using `nvr` command-line tool
 brew "neovim-remote"
 # Command-line Git information tool
@@ -158,8 +156,6 @@ brew "vhs"
 brew "watchexec"
 # Internet file retriever
 brew "wget"
-# CSV CLI magician written in Rust
-brew "xan"
 # Friendly and fast tool for sending HTTP requests
 brew "xh"
 # Feature-rich command-line audio/video downloader
@@ -192,6 +188,8 @@ cask "git-credential-manager"
 cask "iina"
 # Clipboard manager
 cask "maccy"
+# Neovim Client
+cask "neovide-app"
 # Finds large, unwanted files and deletes them
 cask "omnidisksweeper"
 # Programmable solid 3D CAD modeller
