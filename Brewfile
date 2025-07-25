@@ -14,10 +14,6 @@ brew "circumflex"
 brew "clang-format"
 # Console Matrix
 brew "cmatrix"
-# Interpreted, interactive, object-oriented programming language
-brew "python@3.13"
-# Suite of command-line tools for converting to and working with CSV
-brew "csvkit"
 # Modern diagram scripting language that turns text to diagrams
 brew "d2"
 # Diff that understands syntax
@@ -80,6 +76,8 @@ brew "jless"
 brew "jq"
 # Simple terminal UI for git commands
 brew "lazygit"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.13"
 # Access large language models from the command-line
 brew "llm"
 # Clone of ls with colorful output, file type icons, and more
@@ -146,6 +144,8 @@ brew "vhs"
 brew "watchexec"
 # Internet file retriever
 brew "wget"
+# CSV CLI magician written in Rust
+brew "xan"
 # Friendly and fast tool for sending HTTP requests
 brew "xh"
 # Feature-rich command-line audio/video downloader
