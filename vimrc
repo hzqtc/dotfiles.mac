@@ -46,9 +46,6 @@ Plug 'tpope/vim-commentary'
 " Surround or remove surrounding symbols (e.g. ", ', {, [)
 Plug 'tpope/vim-surround'
 
-" Automatic session management
-Plug 'tpope/vim-obsession'
-
 if has('nvim')
   " Diff view
   Plug 'sindrets/diffview.nvim'
@@ -73,9 +70,6 @@ call plug#end()
 
 filetype plugin on
 syntax enable
-
-" File types that forces/prefers tabs
-autocmd FileType make,go setlocal noexpandtab
 
 " Quicker updates for 'vim-signify'
 set updatetime=100
@@ -127,6 +121,12 @@ set noautoread
 set formatoptions=tcroqlmM
 set textwidth=150
 set virtualedit=block
+
+" File types that forces/prefers tabs
+autocmd FileType make,go setlocal noexpandtab
+
+" Set .as file as applescript
+autocmd BufRead,BufNewFile *.as set filetype=applescript
 
 " Remember the following view options and restore automatically
 set viewoptions=folds,cursor,curdir
@@ -265,14 +265,10 @@ nmap <leader>E :e ~/.config/nvim/init.vim<CR>
 nmap <leader>r :source %<CR>
 " Create an empty buffer
 nmap <leader>n :enew<CR>
-
-" Move lines
-nmap <silent> <M-S-Up> :move -2<CR>
-xmap <silent> <M-S-Up> :move -2<CR>
-nmap <silent> <M-S-Down> :move +1<CR>
-xmap <silent> <M-S-Down> :move +1<CR>
-imap <silent> <M-S-Up> <C-o>:move -2<CR>
-imap <silent> <M-S-Down> <C-o>:move +1<CR>
+" Toggle Undotree
+nmap <leader>u :UndotreeToggle<CR>
+" Toggle tag bar
+nmap <leader>a :AerialToggle<CR>
 
 if has('nvim')
   " Open/close diff view
@@ -299,11 +295,17 @@ function! ToggleBackground()
   endif
 endfunction
 
+" Move lines
+nmap <silent> <M-S-Up> :move -2<CR>
+nmap <silent> <M-S-Down> :move +1<CR>
+vmap <silent> <M-S-Up> :move -2<CR>
+vmap <silent> <M-S-Down> :move +1<CR>
+
 " Switch buffer by index (starting with 1). Note: not by buffer number.
 for i in range(1, 9)
   execute 'nmap <leader>' . i . ' :call SwitchBuffer(' . (i - 1) . ')<CR>'
 endfor
-" Quick dial for buffer 1-4
+" Quick dial for buffer 1-8
 nmap <F1> :call SwitchBuffer(0)<CR>
 imap <F1> <Esc>:call SwitchBuffer(0)<CR>
 nmap <F2> :call SwitchBuffer(1)<CR>
@@ -312,26 +314,27 @@ nmap <F3> :call SwitchBuffer(2)<CR>
 imap <F3> <Esc>:call SwitchBuffer(2)<CR>
 nmap <F4> :call SwitchBuffer(3)<CR>
 imap <F4> <Esc>:call SwitchBuffer(3)<CR>
+nmap <F5> :call SwitchBuffer(4)<CR>
+imap <F5> <Esc>:call SwitchBuffer(4)<CR>
+nmap <F6> :call SwitchBuffer(5)<CR>
+imap <F6> <Esc>:call SwitchBuffer(5)<CR>
+nmap <F7> :call SwitchBuffer(6)<CR>
+imap <F7> <Esc>:call SwitchBuffer(6)<CR>
+nmap <F8> :call SwitchBuffer(7)<CR>
+imap <F8> <Esc>:call SwitchBuffer(7)<CR>
 " Toggle nerd tree
-nmap <F5> :NvimTreeToggle<CR>
+nmap <F9> :NvimTreeToggle<CR>
 " Locate current file in nerdtree
-nmap <F6> :NvimTreeFindFile<CR>
-" Toggle Undotree
-nmap <F7> :UndotreeToggle<CR>
-" Toggle tag bar
-nmap <F8> :AerialToggle<CR>
+nmap <F10> :NvimTreeFindFile<CR>
 " Navigate buffers
-nmap <F9> :bprevious<CR>
-nmap <F10> :bnext<CR>
+nmap <F11> :bprevious<CR>
+nmap <F12> :bnext<CR>
 
-" Use ctrl-[hjkl] to select the active split!
+" Use ctrl-[hjkl] to select split panes
 nmap <silent> <c-k> :wincmd k<CR>
 nmap <silent> <c-j> :wincmd j<CR>
 nmap <silent> <c-h> :wincmd h<CR>
 nmap <silent> <c-l> :wincmd l<CR>
-
-" Set .as file as applescript
-autocmd BufRead,BufNewFile *.as set filetype=applescript
 
 if exists("g:neovide")
   let g:neovide_opacity = 0.9
