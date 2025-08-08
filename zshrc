@@ -71,7 +71,7 @@ eval "$(starship init zsh)"
 source <(fzf --zsh)
 source <(nf-list --init zsh)
 
-export LEDGER_FILE="/Users/hzqtc/Documents/hledger/hledger.journal"
+export LEDGER_FILE="/Users/hzqtc/Code/hledger/hledger.journal"
 export PAGER=moar
 export EDITOR=nvim
 export HOMEBREW_NO_AUTO_UPDATE=1

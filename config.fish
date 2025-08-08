@@ -57,7 +57,7 @@ starship init fish | source
 fzf --fish | source
 nf-list --init fish | source
 
-set -gx LEDGER_FILE /Users/hzqtc/Documents/hledger/hledger.journal
+set -gx LEDGER_FILE /Users/hzqtc/Code/hledger/hledger.journal
 set -gx PAGER moar
 set -gx EDITOR nvim
 set -gx HOMEBREW_NO_AUTO_UPDATE 1
