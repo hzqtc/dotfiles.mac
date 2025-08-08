@@ -40,9 +40,6 @@ Plug 'mhinz/vim-startify'
 " Quickly change between single-line and multi-line code syntax
 Plug 'AndrewRadev/splitjoin.vim'
 
-" Quickly comment/uncomment code
-Plug 'tpope/vim-commentary'
-
 " Surround or remove surrounding symbols (e.g. ", ', {, [)
 Plug 'tpope/vim-surround'
 
@@ -122,27 +119,64 @@ set formatoptions=tcroqlmM
 set textwidth=150
 set virtualedit=block
 
-" File types that forces/prefers tabs
-autocmd FileType make,go setlocal noexpandtab
-
-" Set .as file as applescript
-autocmd BufRead,BufNewFile *.as set filetype=applescript
+augroup MyFileType
+  autocmd!
+  " File types that forces/prefers tabs
+  autocmd FileType make setlocal noexpandtab
+  autocmd FileType go setlocal noexpandtab
+  " Set .as file as applescript
+  autocmd BufRead,BufNewFile *.as set filetype=applescript
+augroup END
 
 " Remember the following view options and restore automatically
 set viewoptions=folds,cursor,curdir
-autocmd BufWinLeave * silent! mkview
-autocmd BufWinEnter * silent! loadview
-" Always set cursor to the first line first column when editing a git commit message
-autocmd FileType gitcommit call cursor(1, 1)
+augroup MyViewOptions
+  autocmd!
+  autocmd BufWinLeave * silent! mkview
+  autocmd BufWinEnter * silent! loadview
+  " Always set cursor to the first line first column when editing a git commit message
+  autocmd FileType gitcommit call cursor(1, 1)
+augroup END
 
-" Removing trailing spaces on save
-autocmd BufWritePre * :%s/\s\+$//e
+augroup MyAutoEdit
+  autocmd!
+  " Removing trailing spaces on save
+  autocmd BufWritePre * %s/\s\+$//e
+augroup END
+
+" Remember the closed buffers
+let g:wiped_buffers = []
+augroup MyWipedBuffers
+  autocmd!
+  autocmd BufWipeout * if filereadable(expand('<afile>:p')) | call add(g:wiped_buffers, expand('<afile>:p')) | endif
+augroup END
+
+function! ReopenLastWipedBuffer()
+  if !empty(g:wiped_buffers)
+    let path = remove(g:wiped_buffers, -1)
+    execute 'edit ' . fnameescape(path)
+  else
+    echo "No wiped buffers"
+  endif
+endfunction
+
+" Automatically save and reload session
+augroup MySession
+  autocmd!
+  autocmd VimLeavePre * mksession! ~/.vim/session.vim
+augroup END
+if argc() == 0 && filereadable(expand("~/.vim/session.vim"))
+  source ~/.vim/session.vim
+endif
 
 " Don't autofold
 set foldlevelstart=99
 " Set foldmethod to 'diff' when in diff mode, 'indent' otherwise
-autocmd WinEnter,BufWinEnter * if &diff | setlocal foldmethod=diff | else | setlocal foldmethod=indent | endif
-autocmd OptionSet diff if &diff | setlocal foldmethod=diff | else | setlocal foldmethod=indent | endif
+augroup MyFoldMethod
+  autocmd!
+  autocmd WinEnter,BufWinEnter * if &diff | setlocal foldmethod=diff | else | setlocal foldmethod=indent | endif
+  autocmd OptionSet diff if &diff | setlocal foldmethod=diff | else | setlocal foldmethod=indent | endif
+augroup END
 
 " ======================
 " Airline config section
@@ -265,8 +299,10 @@ nmap <leader>E :e ~/.config/nvim/init.vim<CR>
 nmap <leader>r :source %<CR>
 " Create an empty buffer
 nmap <leader>n :enew<CR>
+" Reopen last closed buffer
+nmap <leader>u :call ReopenLastWipedBuffer()<CR>
 " Toggle Undotree
-nmap <leader>u :UndotreeToggle<CR>
+nmap <leader>U :UndotreeToggle<CR>
 " Toggle tag bar
 nmap <leader>a :AerialToggle<CR>
 
